@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'thebold';
+    src: url('/static/fonts/THEBOLDFONT-FREEVERSION.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'tt_norms';
+    src: url('/static/fonts/TTNormsProCompact-Normal.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'beast';
+    src: url('/static/fonts/Beast-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'FarabeeStraightBold';
+    src: url('/static/fonts/FarabeeStraightBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'spacegrotesk';
+    src: url('/static/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+}h1 {
+  font-family : FarabeeStraightBold;
+  font-size : 30px;
+  letter-spacing: 0.5px;
+  padding-top: 35px;
+  padding-left: 60px;
+  color: #e07a5f;
+}
+h2 {
+  font-family : tt_norms;
+  font-size : 30px;
+  letter-spacing: 0.5px;
+  top: 7.3%;
+  right: 50%;
+  display: inline-block;
+  position: fixed;
+  color: #f4f1de;
+}
+#profile h2{
+  font-family : tt_norms;
+  font-size : 30px;
+  letter-spacing: 0.5px;
+  top: 6%;
+  right: 3.8%;
+  display: inline-block;
+  position: fixed;
+  color: #f4f1de;
+}
+body {
+  background : #3d405b;
+}
+@keyframes profile-name {
+  from {
+    width: 100px;
+    height: 0px;
+  }
+  to {
+    width: 100px;
+    height: 140px;
+  }
+}
+@keyframes profile-off {
+  from {
+    width: width;
+    height: height;
+  }
+  to {
+    width: 100px;
+    height: 0px;
+  }
+}
+#profile h2:hover ~ #options {
+  border : solid #f4f1de;
+  height: 200px;
+  transition-property: height, border;
+  transition-duration: 1s;
+  transition-delay: 0s;
+
+  #f {
+  visibility: visible;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s;
+}
+  #s {
+  visibility: visible;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.4s;
+}
+#t {
+  visibility: visible;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.6s;
+}
+}
+#profile #options:hover{
+  border : solid #f4f1de;
+  height: 200px;
+  transition-property: height, border;
+  transition-duration: 1s;
+  transition-delay: 0s;
+  #f {
+  visibility: visible;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s;
+}
+  #s {
+  visibility: visible;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.4s;
+}
+#t {
+  visibility: visible;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.6s;
+}
+}
+#profile h2 ~ #options{
+  height: 0px;
+  border-width : 0px;
+  transition-property: height, border-width;
+  transition-duration: 1s;
+  transition-delay: 0.2s;
+  #f {
+  visibility: hidden;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.4s;
+}
+  #s {
+  visibility: hidden;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s;
+}
+#t {
+  visibility: hidden;
+  transition-property: visibility;
+  transition-duration: 0.2s;
+}
+}
+
+#options {
+border : solid #f4f1de;
+background : #3d405b;
+width: 100px;
+height: 0px;
+display: block;
+overflow: visible;
+right: 3%;
+  position: fixed;
+  top: 12%;
+position: fixed;
+}
+#txt h1 {
+  margin-top: 20vh;
+  margin-right: 20vh;
+}
+.navigation {
+  z-index: 999999;
+  position: fixed;
+  width: 100%;
+  background: #3d405b;
+  height: 18vh;
+  border-bottom: 1px solid #f4f1de;
+  --height_: 200px;
+}
+
+#profile {
+  position: fixed;
+  top: 7.3%;
+
+}
+
+.navigation h1 {
+  width: 100px;
+}
+
+a {
+  color: #f4f1de;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #e07a5f;
+}
+
+#f {
+  visibility: hidden;
+  padding-left: 12px;
+  position: fixed;
+
+}
+
+
+#s {
+  visibility: hidden;
+  position: fixed;
+  padding-left: 12px;
+  top: 175px;
+}
+
+#t {
+  visibility: hidden;
+  position: fixed;
+  top: 235px;
+  padding-left: 25px;
+}
+
+
+
+

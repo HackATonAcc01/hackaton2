@@ -1,0 +1,85 @@
+
+@font-face {
+    font-family: 'tt_norms';
+    src: url('/static/fonts/TTNormsProCompact-Normal.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'beast';
+    src: url('/static/fonts/Beast-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'spacegrotesk';
+    src: url('/static/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+}
+
+.search {
+    height: 35px;
+    width: 50%;
+    margin-left: 25%;
+    background : #f4f1de;
+    margin-top: 10%;
+    border: solid;
+    border-radius: 10px;
+    border-color: #3d405b;
+    font-family: tt_norms;
+}
+body {
+  background : #3d405b;
+}
+
+.results {
+    margin-top: 2%;
+    margin-left: 25%;
+    background : #f4f1de;
+    width: 50%;
+    height: max-content;
+    max-height: 330px;
+    border: solid;
+    overflow-y: scroll;
+    border-radius: 10px;
+    border-color: #3d405b;
+    font-family: tt_norms;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f4f1de;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a {
+    color: #3d405b;
+}
+
+#f {
+  color: #f4f1de;
+}
+
+
+#s {
+  color: #f4f1de;
+}
+
+#t {
+  color: #f4f1de;
+}
+
+#login {
+    color: #f4f1de;
+}

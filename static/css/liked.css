@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'tt_norms';
+    src: url('/static/fonts/TTNormsProCompact-Normal.ttf') format('truetype');
+}
+
+#empty {
+    margin-left: 43%;
+}
+
+#liked_games {
+    margin-left: 43%;
+    font-size: 22px;
+}
+
+#title {
+    font-family: tt_norms;
+    margin-left: 37%;
+}

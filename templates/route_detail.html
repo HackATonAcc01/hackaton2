@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %}{{ route.title }} — Народы Самары{% endblock %}
+
+{% block content %}
+
+<div style="background:#8b1a1a; color:white; border-radius:12px;
+            padding:30px; margin-bottom:25px;">
+    <h2 style="font-size:1.8rem; margin-bottom:10px;">{{ route.title }}</h2>
+    <p style="opacity:0.9; line-height:1.7; max-width:750px;">{{ route.description }}</p>
+    <div style="margin-top:15px; display:flex; gap:25px; font-size:0.9rem;
+                opacity:0.85; flex-wrap:wrap;">
+        <span>⏱ {{ route.duration }}</span>
+        <span>📊 {{ route.complexity }}</span>
+        <span>📍 {{ route.checkpoints|length }} точек</span>
+    </div>
+</div>
+
+<div style="display:grid; grid-template-columns:1fr 420px; gap:25px;">
+
+    <!-- Левая: прогресс + точки -->
+    <div>
+        <!-- Прогресс -->
+        <div class="card" style="padding:20px; margin-bottom:20px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                <strong>Прогресс маршрута</strong>
+                <span style="color:#8b1a1a; font-weight:bold;">
+                    {{ completed }} / {{ total }}
+                </span>
+            </div>
+            <div style="background:#e0e0e0; border-radius:10px; height:14px; overflow:hidden;">
+                <div style="background:#8b1a1a; height:100%; border-radius:10px;
+                            width:{{ (completed / total * 100)|int if total > 0 else 0 }}%;
+                            transition:width 0.5s;">
+                </div>
+            </div>
+            {% if completed == total and total > 0 %}
+            <p style="color:#2e7d32; font-weight:bold; margin-top:12px; text-align:center;">
+                🎉 Маршрут полностью завершён! Поздравляем!
+            </p>
+            {% endif %}
+
+        </div>
+
+        <!-- Точки -->
+        <h3 style="margin-bottom:15px; color:#8b1a1a;">📍 Точки маршрута</h3>
+        {% for cp in route.checkpoints %}
+        <div class="card" style="margin-bottom:12px; padding:18px;
+                    border-left:5px solid {{ '#2e7d32' if cp.id in progress else '#8b1a1a' }};
+                    display:flex; justify-content:space-between;
+                    align-items:center; gap:15px;">
+            <div style="flex:1;">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                    <span style="background:{{ '#2e7d32' if cp.id in progress else '#8b1a1a' }};
+                                 color:white; width:26px; height:26px; border-radius:50%;
+                                 display:flex; align-items:center; justify-content:center;
+                                 font-size:0.8rem; font-weight:bold; flex-shrink:0;">
+                        {{ loop.index }}
+                    </span>
+                    <h4 style="font-size:0.93rem; line-height:1.3;">{{ cp.name }}</h4>
+                    {% if cp.id in progress %}
+                    <span style="color:#2e7d32; font-size:0.78rem; white-space:nowrap;">✓ Пройдено</span>
+                    {% endif %}
+                </div>
+                <p style="color:#888; font-size:0.82rem; margin-left:36px;">
+                    📌 {{ cp.address }}
+                </p>
+            </div>
+            <div style="flex-shrink:0;">
+                <a href="{{ url_for('checkpoint', route_id=route.id, checkpoint_id=cp.id) }}"
+                   class="btn {{ 'btn-success' if cp.id in progress else '' }}"
+                   style="padding:8px 14px; font-size:0.83rem;">
+                    {{ 'Повторить' if cp.id in progress else 'Посетить' }}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div style="margin-top:20px;">
+            <a href="{{ url_for('routes_list') }}" class="btn btn-secondary">← Все маршруты</a>
+        </div>
+    </div>
+
+    <!-- Правая: карта всего маршрута -->
+    <div>
+        <div class="card" style="position:sticky; top:80px;">
+            <div style="padding:15px 20px; border-bottom:1px solid #f0f0f0;">
+                <strong style="color:#8b1a1a;">🗺 Карта маршрута</strong>
+            </div>
+            <!-- iframe без ключа -->
+            <div class="map-container" style="height:480px;">
+                <iframe
+                    src="{{ route.map_iframe }}"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Карта маршрута {{ route.title }}">
+                </iframe>
+            </div>
+            <div style="padding:12px 15px; background:#f9f9f9; text-align:center;">
+                <p style="font-size:0.8rem; color:#888;">
+                    Все точки маршрута отмечены на карте
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

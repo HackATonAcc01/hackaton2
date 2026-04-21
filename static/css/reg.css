@@ -1,0 +1,23 @@
+h2 {
+  margin-left: 47%;
+}
+
+label {
+  margin-left: 42%;
+}
+
+#login {
+  margin-left: 42%;
+}
+
+.form-control {
+  margin-left: 35%;
+}
+
+div[class="alert alert-danger"] {
+  margin-left: 37.5%;
+}
+
+#submit {
+  margin-left: 39.5%;
+}

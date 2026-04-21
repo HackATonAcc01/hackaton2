@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/log.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/form_.css"/>
+
+
+    </head>
+    <body>
+		<div class="navigation">
+            <h1>FINDKEY</h1>
+			<h2>вход</h2>
+        
+        </div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label(id="login") }}<br>
+        {{ form.username(class="form-control") }}<br>
+        {% for error in form.username.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password") }}<br>
+        {% for error in form.password.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+</form>
+		{% if message %}
+			<div class="alert alert-danger" role="alert">
+        		{{ message }}
+    		</div>
+		{% endif %}
+		<br>
+		<br>
+	<a href="/register" id="link_r">Зарегистрироваться</a>
+		<br>
+	<a href="/" id="back">На главную</a>
+	</body>
+</html>

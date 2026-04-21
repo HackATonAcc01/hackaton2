@@ -1,0 +1,11 @@
+SQLAlchemy
+requests
+Flask
+Flask-APScheduler
+lxml
+WTForms
+httpx
+selenium
+seleniumbase
+Flask-Mail
+Flask-Wtf

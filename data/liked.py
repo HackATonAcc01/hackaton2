@@ -7,4 +7,4 @@ class Liked(SqlAlchemyBase):
 
     login = sqlalchemy.Column(sqlalchemy.String,
                            primary_key=True)
-    games = sqlalchemy.Column(sqlalchemy.String)
+    points = sqlalchemy.Column(sqlalchemy.String)

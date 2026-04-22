@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block title %}Избранные точки{% endblock %}
+
+{% block content %}
+
+<div style="margin-bottom:25px;">
+    <h2 style="color:#e07a5f; font-family:FarabeeStraightBold, sans-serif;
+               font-size:1.8rem; margin-bottom:8px;">
+        ❤️ Избранные места
+    </h2>
+    <p style="color:#aaa; font-size:0.9rem;">
+        Точки маршрутов, которые вы сохранили
+    </p>
+</div>
+
+{% if favorites %}
+
+<!-- Счётчик -->
+<div style="background:rgba(224,122,95,0.1); border:1px solid rgba(224,122,95,0.3);
+            border-radius:10px; padding:14px 20px; margin-bottom:25px;
+            display:inline-block;">
+    <span style="color:#e07a5f; font-weight:bold; font-size:1rem;">
+        📍 Сохранено мест: {{ favorites|length }}
+    </span>
+</div>
+
+<!-- Сетка карточек -->
+<div style="display:grid;
+            grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+            gap:22px;">
+
+    {% for item in favorites %}
+    <div style="background:white; border-radius:12px;
+                box-shadow:0 3px 12px rgba(0,0,0,0.15);
+                overflow:hidden; transition:transform 0.2s;"
+         onmouseover="this.style.transform='translateY(-4px)'"
+         onmouseout="this.style.transform='translateY(0)'">
+
+        <!-- Фото -->
+        <div style="height:180px; overflow:hidden; position:relative; background:#222;">
+            <img src="{{ item.checkpoint.media }}"
+                 alt="{{ item.checkpoint.name }}"
+                 style="width:100%; height:100%;
+                        object-fit:cover; opacity:0.85;">
+            <!-- Бейдж маршрута -->
+            <div style="position:absolute; top:10px; left:10px;
+                        background:rgba(139,26,26,0.9); color:white;
+                        padding:4px 10px; border-radius:20px; font-size:0.75rem;">
+                {{ item.route.title }}
+            </div>
+            <!-- Кнопка удалить из избранного -->
+            <button onclick="removeFavorite('{{ item.fav_id }}', this)"
+                    style="position:absolute; top:8px; right:8px;
+                           background:rgba(0,0,0,0.5); border:none;
+                           color:#ff6b6b; font-size:1.3rem; cursor:pointer;
+                           width:36px; height:36px; border-radius:50%;
+                           display:flex; align-items:center; justify-content:center;
+                           transition:background 0.2s;"
+                    onmouseover="this.style.background='rgba(200,0,0,0.7)'"
+                    onmouseout="this.style.background='rgba(0,0,0,0.5)'"
+                    title="Удалить из избранного">
+                ❤️
+            </button>
+        </div>
+
+        <!-- Контент -->
+        <div style="padding:18px;">
+            <h3 style="font-size:0.98rem; color:#333;
+                       margin-bottom:8px; line-height:1.4;">
+                {{ item.checkpoint.name }}
+            </h3>
+            <p style="font-size:0.82rem; color:#888; margin-bottom:10px;">
+                📌 {{ item.checkpoint.address }}
+            </p>
+            <p style="font-size:0.85rem; color:#555; line-height:1.5;
+                      margin-bottom:14px;">
+                {{ item.checkpoint.description[:100] }}...
+            </p>
+
+            <!-- Факт -->
+            <div style="background:#fff8e1; border-left:3px solid #f9a825;
+                        padding:10px 12px; border-radius:0 6px 6px 0;
+                        margin-bottom:15px;">
+                <p style="font-size:0.8rem; color:#777; line-height:1.5;">
+                    💡 {{ item.checkpoint.fact[:90] }}...
+                </p>
+            </div>
+
+
+        </div>
+        <br>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<!-- Пусто -->
+<div style="text-align:center; padding:80px 20px;
+            background:white; border-radius:12px;
+            box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+    <div style="font-size:4rem; margin-bottom:20px;">🗺</div>
+    <h3 style="color:#555; font-size:1.3rem; margin-bottom:12px;">
+        Избранных мест пока нет
+    </h3>
+    <p style="color:#888; font-size:0.9rem; margin-bottom:25px; max-width:400px; margin-left:auto; margin-right:auto;">
+        Открывайте маршруты, посещайте точки и нажимайте ❤️,
+        чтобы сохранить место в избранное.
+    </p>
+    <a href="/"
+       style="display:inline-block; background:#8b1a1a; color:white;
+              padding:12px 28px; border-radius:8px; text-decoration:none;
+              font-size:0.95rem; transition:background 0.2s;"
+       onmouseover="this.style.background='#a52a2a'"
+       onmouseout="this.style.background='#8b1a1a'">
+        ← На главную
+    </a>
+</div>
+
+{% endif %}
+
+<!-- JS для удаления через AJAX -->
+<script>
+function removeFavorite(favId, btn) {
+    const card = btn.closest('div[style*="border-radius:12px"]');
+
+    fetch('/favorite/toggle/' + favId, {
+        method: 'POST',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (!data.added) {
+            // Плавно убираем карточку
+            card.style.transition = 'opacity 0.4s, transform 0.4s';
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                card.remove();
+                // Если больше нет карточек — перезагрузить
+                const remaining = document.querySelectorAll(
+                    'div[style*="border-radius:12px"]'
+                );
+                if (remaining.length === 0) {
+                    location.reload();
+                }
+            }, 400);
+        }
+    })
+    .catch(() => {
+        // Если ошибка — просто перезагружаем
+        location.reload();
+    });
+}
+</script>
+
+{% endblock %}

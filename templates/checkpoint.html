@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
-{% block head %}
-    {{ super() }}
-{% endblock %}
-
+{% block head %}{{ super() }}{% endblock %}
 {% block title %}{{ checkpoint.name }}{% endblock %}
 
 {% block content %}
@@ -30,54 +27,101 @@
 
         <div style="padding:25px 30px;">
 
-            <!-- Медиа заглушка -->
+            <!-- Медиа -->
             <div style="background:#f5f0e8; border-radius:10px; padding:25px;
                         text-align:center; margin-bottom:25px;
                         border:2px dashed #c9a96e;">
-                 <img src={{ checkpoint.media }}
-     alt="Музей"
-     style="max-width: 100%; height: auto; border-radius: 8px; object-fit: contain;">
-
-
+                <img src="{{ checkpoint.media }}"
+                     alt="{{ checkpoint.name }}"
+                     style="max-width:100%; height:auto;
+                            border-radius:8px; object-fit:contain;">
             </div>
 
             <!-- Описание -->
             <h3 style="color:#8b1a1a; margin-bottom:12px;">О месте</h3>
-            <p style="line-height:1.8; color:#444; margin-bottom:20px; font-size:0.93rem;">
+            <p style="line-height:1.8; color:#444;
+                      margin-bottom:20px; font-size:0.93rem;">
                 {{ checkpoint.description }}
             </p>
 
-            <!-- Факт -->
+            <!-- Исторический факт -->
             <div style="background:#fff8e1; border-left:4px solid #f9a825;
-                        padding:15px 20px; border-radius:0 8px 8px 0; margin-bottom:25px;">
-                <strong style="color:#f57f17; font-size:0.88rem;">💡 Исторический факт:</strong>
-                <p style="margin-top:8px; color:#555; line-height:1.7; font-size:0.88rem;">
+                        padding:15px 20px; border-radius:0 8px 8px 0;
+                        margin-bottom:25px;">
+                <strong style="color:#f57f17; font-size:0.88rem;">
+                    💡 Исторический факт:
+                </strong>
+                <p style="margin-top:8px; color:#555;
+                          line-height:1.7; font-size:0.88rem;">
                     {{ checkpoint.fact }}
                 </p>
             </div>
 
+            <!-- Пройдена -->
             {% if checkpoint.id in progress %}
             <div style="background:#e8f5e9; border-radius:8px; padding:13px;
                         text-align:center; margin-bottom:18px;">
-                <span style="color:#2e7d32; font-weight:bold;">✅ Точка уже пройдена!</span>
+                <span style="color:#2e7d32; font-weight:bold;">
+                    ✅ Точка уже пройдена!
+                </span>
             </div>
             {% endif %}
 
-            <!-- Кнопки -->
+            <!-- ★ Кнопка избранного ---------------------------------------- -->
+            <form id="fav-form"
+                  action="{{ url_for('toggle_favorite',
+                                    checkpoint_id=id) }}"
+                  method="post"
+                  style="margin-bottom:18px;">
+                <input type="hidden" name="route_id" value="{{ route.id }}">
+
+                {% set is_fav = id in favorite_ids %}
+
+                <button type="submit"
+                        id="fav-btn"
+                        style="
+                            width: 100%;
+                            padding: 12px;
+                            border-radius: 8px;
+                            border: 2px solid {{ '#c9a96e' if is_fav else '#ddd' }};
+                            background: {{ '#fff8e1' if is_fav else '#fafafa' }};
+                            color: {{ '#8b1a1a' if is_fav else '#555' }};
+                            font-size: 0.95rem;
+                            font-weight: bold;
+                            cursor: pointer;
+                            transition: all .2s;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 8px;">
+                    <span id="fav-icon">{{ '❤️' if is_fav else '♡' }}</span>
+
+                </button>
+            </form>
+            <!-- ------------------------------------------------------------ -->
+
+            <!-- Кнопки навигации -->
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <a href="{{ url_for('quiz', route_id=route.id, checkpoint_id=checkpoint.id) }}"
+                <a href="{{ url_for('quiz',
+                                   route_id=route.id,
+                                   checkpoint_id=checkpoint.id) }}"
                    class="btn">📝 Викторина</a>
+
                 {% if next_cp %}
-                <a href="{{ url_for('checkpoint', route_id=route.id, checkpoint_id=next_cp.id) }}"
+                <a href="{{ url_for('checkpoint',
+                                   route_id=route.id,
+                                   checkpoint_id=next_cp.id) }}"
                    class="btn btn-secondary">Следующая →</a>
                 {% endif %}
+
                 <a href="{{ url_for('route_detail', route_id=route.id) }}"
                    class="btn btn-secondary">← Маршрут</a>
             </div>
+
         </div>
     </div>
 
-    <!-- Карта точки (iframe без ключа) -->
+    <!-- Карта точки -->
     <div style="position:sticky; top:80px;">
         <div class="card">
             <div style="padding:15px 20px; border-bottom:1px solid #f0f0f0;">
@@ -86,25 +130,24 @@
             <div class="map-container" style="height:320px;">
                 <iframe
                     src="{{ checkpoint.map_iframe }}"
-                    allowfullscreen
-                    loading="lazy"
+                    allowfullscreen loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
                     title="{{ checkpoint.name }}">
                 </iframe>
             </div>
             <div style="padding:15px 20px; background:#f9f9f9;">
-                <p style="font-size:0.85rem; color:#555; font-weight:bold; margin-bottom:6px;">
+                <p style="font-size:0.85rem; color:#555;
+                          font-weight:bold; margin-bottom:6px;">
                     {{ checkpoint.name }}
                 </p>
                 <p style="font-size:0.82rem; color:#888; margin-bottom:10px;">
                     📌 {{ checkpoint.address }}
                 </p>
-                <!-- Ссылка на Яндекс Карты (откроет в новой вкладке) -->
                 <a href="https://yandex.ru/maps/?ll={{ checkpoint.lon }},{{ checkpoint.lat }}&z=16"
-                   target="_blank"
-                   rel="noopener noreferrer"
+                   target="_blank" rel="noopener noreferrer"
                    class="btn"
-                   style="width:100%; text-align:center; display:block; font-size:0.83rem;">
+                   style="width:100%; text-align:center;
+                          display:block; font-size:0.83rem;">
                     🗺 Открыть в Яндекс Картах
                 </a>
             </div>
@@ -112,4 +155,50 @@
     </div>
 
 </div>
+
+<!-- AJAX-переключение без перезагрузки страницы -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('fav-form');
+    if (!form) return;
+
+    const btn  = document.getElementById('fav-btn');
+    const icon = document.getElementById('fav-icon');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+
+        try {
+            const resp = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(new FormData(form))
+            });
+
+            const data = await resp.json();
+
+            if (data.added) {
+                icon.textContent = '❤️';
+                btn.style.borderColor  = '#c9a96e';
+                btn.style.background   = '#fff8e1';
+                btn.style.color        = '#8b1a1a';
+            } else {
+                icon.textContent = '♡';
+                btn.style.borderColor  = '#ddd';
+                btn.style.background   = '#fafafa';
+                btn.style.color        = '#555';
+            }
+        } catch (err) {
+            console.error(err);
+        } finally {
+            btn.disabled = false;
+        }
+    });
+});
+</script>
+
 {% endblock %}

@@ -5,6 +5,7 @@ import uuid
 
 from flask_mail import Message, Mail
 from flask_apscheduler import APScheduler
+from sqlalchemy.dialects.sqlite import insert
 from sqlalchemy.orm.sync import update
 
 from data.liked import Liked
@@ -1318,11 +1319,11 @@ def route_detail(route_id):
 
 @app.route('/route/<int:route_id>/checkpoint/<int:checkpoint_id>')
 def checkpoint(route_id, checkpoint_id):
+    checkpoint_id = checkpoint_id - 1
     route = ROUTES.get(route_id)
     if not route:
         return render_template('404.html'), 404
-
-    cp = next((c for c in route['checkpoints'] if c['id'] == checkpoint_id), None)
+    cp = next((c for c in route['checkpoints'] if c['id'] == checkpoint_id + 1), None)
     if not cp:
         return render_template('404.html'), 404
 
@@ -1330,16 +1331,67 @@ def checkpoint(route_id, checkpoint_id):
     progress = flask.session.get(session_key, [])
 
     checkpoints = route['checkpoints']
-    current_index = next(i for i, c in enumerate(checkpoints) if c['id'] == checkpoint_id)
+    current_index = next(i for i, c in enumerate(checkpoints) if c['id'] == checkpoint_id + 1)
     next_cp = checkpoints[current_index + 1] if current_index + 1 < len(checkpoints) else None
-
-    return render_template(
-        'checkpoint.html',
-        route=route,
-        checkpoint=cp,
-        progress=progress,
-        next_cp=next_cp
+    points_ = db_sess.query(Liked.points).filter(
+        Liked.login == flask.request.cookies.get("login_")
+    ).first()
+    if not points_:
+        favorite_ids = []
+    else:
+        favorite_ids = points_[0].split('-')
+    return render_template('checkpoint.html',
+                           route=route,
+                           checkpoint=checkpoints[checkpoint_id],
+                           next_cp=next_cp,
+                           progress=progress,
+                           favorite_ids=favorite_ids,
+                           id=str(route_id) + "." + str(checkpoint_id),
     )
+
+def add_to_favorite(points_array, checkpoint_id, login_):
+    points_array.append(str(checkpoint_id))
+    action = insert(Liked).values(login=login_, points='-'.join(points_array)).on_conflict_do_update(
+        index_elements=['login'],
+        set_=dict(points='-'.join(points_array))
+    )
+    db_sess.flush()
+    db_sess.execute(action)
+    db_sess.commit()
+
+@app.route('/favorite/toggle/<checkpoint_id>', methods=['POST'])
+def toggle_favorite(checkpoint_id):
+    login_ = flask.request.cookies.get("login_")
+    points_ = db_sess.query(Liked.points).filter(
+        Liked.login==login_
+    ).first()
+    if not points_:
+        points_ = []
+    else:
+        points_ = points_[0].split('-')
+    existing = checkpoint_id in points_
+    if existing:
+        points_.remove(checkpoint_id)
+        action = insert(Liked).values(login=login_, points='-'.join(points_)).on_conflict_do_update(
+            index_elements=['login'],
+            set_=dict(points='-'.join(points_))
+        )
+        db_sess.flush()
+        db_sess.execute(action)
+        db_sess.commit()
+        added = False
+    else:
+        add_to_favorite(points_, checkpoint_id, login_)
+        added = True
+
+    # Если AJAX-запрос — вернуть JSON
+    if flask.request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify({'added': added})
+    # Иначе вернуть на страницу точки
+    route_id = flask.request.form.get('route_id')
+    return redirect(flask.url_for('checkpoint',
+                            route_id=route_id,
+                            checkpoint_id=checkpoint_id))
 
 
 @app.route('/route/<int:route_id>/checkpoint/<int:checkpoint_id>/quiz',
@@ -1376,12 +1428,40 @@ def quiz(route_id, checkpoint_id):
         next_cp=next_cp
     )
 
+@app.route('/favorites')
+def favorites():
+    login_ = flask.request.cookies.get("login_")
+    if not login_:
+        return redirect('/login')
 
-# @app.route('/route/<int:route_id>/reset')
-# def reset_progress(route_id):
-#     session_key = f'progress_{route_id}'
-#     session.pop(session_key, None)
-#     return redirect(url_for('route_detail', route_id=route_id))
+    result = db_sess.query(Liked.points).filter(
+        Liked.login == login_
+    ).first()
+
+    all_points = []
+
+    if result and result[0]:
+        for fav in result[0].split("-"):
+            if not fav or "." not in fav:
+                continue
+            try:
+                route_id, checkpoint_id = fav.split(".")
+                route_id = int(route_id)
+                checkpoint_id = int(checkpoint_id)
+                route = ROUTES.get(route_id)
+                if not route:
+                    continue
+                cp = route['checkpoints'][checkpoint_id]
+                if cp:
+                    all_points.append({
+                        'checkpoint': cp,
+                        'route': route,
+                        'fav_id': fav
+                    })
+            except (ValueError, KeyError):
+                continue
+
+    return render_template('favorites.html', favorites=all_points)
 
 if __name__ == "__main__":
     app.run()

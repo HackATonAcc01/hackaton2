@@ -144,6 +144,7 @@ h2 {
 
 #options {
 border : solid #f4f1de;
+border-radius: 12px;
 background : #3d405b;
 width: 100px;
 height: 0px;

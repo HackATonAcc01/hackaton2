@@ -30,15 +30,13 @@
 
         <div style="padding:25px 30px;">
 
-            <!-- Медиа заглушка -->
+            <!-- Медиа -->
             <div style="background:#f5f0e8; border-radius:10px; padding:25px;
                         text-align:center; margin-bottom:25px;
                         border:2px dashed #c9a96e;">
-                 <img src={{ checkpoint.media }}
+                 <img src="{{ checkpoint.media }}"
      alt="Музей"
      style="max-width: 100%; height: auto; border-radius: 8px; object-fit: contain;">
-
-
             </div>
 
             <!-- Описание -->
@@ -67,6 +65,14 @@
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
                 <a href="{{ url_for('quiz', route_id=route.id, checkpoint_id=checkpoint.id) }}"
                    class="btn">📝 Викторина</a>
+                {% if user_logged_in %}
+                <button onclick="toggleFavorite({{ route.id }}, {{ checkpoint.id }})"
+                        id="favorite-btn"
+                        class="btn {{ 'btn-success' if is_favorite else 'btn-secondary' }}"
+                        style="padding:10px 20px;">
+                    {{ '★ В избранном' if is_favorite else '☆ В избранное' }}
+                </button>
+                {% endif %}
                 {% if next_cp %}
                 <a href="{{ url_for('checkpoint', route_id=route.id, checkpoint_id=next_cp.id) }}"
                    class="btn btn-secondary">Следующая →</a>
@@ -77,7 +83,7 @@
         </div>
     </div>
 
-    <!-- Карта точки (iframe без ключа) -->
+    <!-- Карта точки -->
     <div style="position:sticky; top:80px;">
         <div class="card">
             <div style="padding:15px 20px; border-bottom:1px solid #f0f0f0;">
@@ -99,7 +105,6 @@
                 <p style="font-size:0.82rem; color:#888; margin-bottom:10px;">
                     📌 {{ checkpoint.address }}
                 </p>
-                <!-- Ссылка на Яндекс Карты (откроет в новой вкладке) -->
                 <a href="https://yandex.ru/maps/?ll={{ checkpoint.lon }},{{ checkpoint.lat }}&z=16"
                    target="_blank"
                    rel="noopener noreferrer"
@@ -112,4 +117,32 @@
     </div>
 
 </div>
+
+<script>
+function toggleFavorite(routeId, checkpointId) {
+    fetch(`/route/${routeId}/checkpoint/${checkpointId}/toggle_favorite`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const btn = document.getElementById('favorite-btn');
+            if (data.action === 'added') {
+                btn.textContent = '★ В избранном';
+                btn.classList.remove('btn-secondary');
+                btn.classList.add('btn-success');
+            } else {
+                btn.textContent = '☆ В избранное';
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-secondary');
+            }
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+
 {% endblock %}

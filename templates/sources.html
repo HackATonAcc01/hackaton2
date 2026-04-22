@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Источники{% endblock %}
+
+{% block content %}
+
+<div class="card" style="padding:30px;">
+    <h2 style="color:#8b1a1a; margin-bottom:25px;">Источники информации</h2>
+
+    <p style="line-height:1.8; color:#444; margin-bottom:25px; font-size:0.95rem;">
+        При создании маршрутов и описаний культурно-исторических объектов 
+        использовались следующие источники:
+    </p>
+
+    <div style="display:flex; flex-direction:column; gap:20px;">
+        
+        <div style="background:#f9f9f9; border-left:4px solid #8b1a1a; padding:20px; border-radius:0 8px 8px 0;">
+            <h3 style="color:#8b1a1a; font-size:1.1rem; margin-bottom:10px;">
+                Википедия
+            </h3>
+            <p style="color:#666; font-size:0.9rem; line-height:1.6; margin-bottom:12px;">
+                Свободная энциклопедия, содержащая статьи об исторических местах, 
+                музеях, культурных объектах и достопримечательностях России.
+            </p>
+            <a href="https://ru.wikipedia.org" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="btn btn-sm"
+               style="display:inline-block;">
+                🔗 Перейти на сайт
+            </a>
+        </div>
+
+        <div style="background:#f9f9f9; border-left:4px solid #8b1a1a; padding:20px; border-radius:0 8px 8px 0;">
+            <h3 style="color:#8b1a1a; font-size:1.1rem; margin-bottom:10px;">
+                Первый Казанский
+            </h3>
+            <p style="color:#666; font-size:0.9rem; line-height:1.6; margin-bottom:12px;">
+                Информационный портал города Казани, освещающий культурные события, 
+                достопримечательности и историю Республики Татарстан.
+            </p>
+            <a href="https://kazanfirst.ru" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="btn btn-sm"
+               style="display:inline-block;">
+                🔗 Перейти на сайт
+            </a>
+        </div>
+
+    </div>
+
+    <div style="margin-top:30px; padding-top:25px; border-top:1px solid #e0e0e0;">
+        <p style="color:#888; font-size:0.85rem; line-height:1.6;">
+            <strong>Примечание:</strong> Информация актуализирована на момент создания маршрутов. 
+            Рекомендуем уточнять режим работы объектов на официальных сайтах музеев и 
+            культурных центров перед посещением.
+        </p>
+    </div>
+</div>
+
+<div style="margin-top:30px;">
+    <a href="/" class="btn btn-secondary">← На главную</a>
+</div>
+
+{% endblock %}

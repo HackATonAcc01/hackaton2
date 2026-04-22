@@ -18,21 +18,44 @@
         <div style="background:#8b1a1a; color:white; padding:20px 25px;">
             <div style="font-size:0.82rem; opacity:0.75; margin-bottom:5px;">📝 Викторина</div>
             <h2 style="font-size:1.25rem; line-height:1.4;">{{ checkpoint.name }}</h2>
+            {% if not quiz_completed %}
+            <div style="margin-top:10px; font-size:0.9rem;">
+                Вопрос {{ question_number }} из {{ total_questions }}
+            </div>
+            {% endif %}
         </div>
 
         <div style="padding:25px 30px;">
-            {% if result is none %}
+            {% if not quiz_completed and current_question %}
 
             <div style="background:#f5f0e8; border-radius:10px;
                         padding:20px; margin-bottom:25px;">
                 <h3 style="color:#8b1a1a; font-size:1rem; line-height:1.6;">
-                    ❓ {{ checkpoint.quiz_question }}
+                    ❓ {{ current_question.question }}
                 </h3>
             </div>
 
+            {% if show_next_button %}
+                <div style="background:{{ '#e8f5e9' if result else '#ffebee' }}; border-radius:8px; padding:14px;
+                            margin-bottom:20px; text-align:center;">
+                    <strong style="color:{{ '#2e7d32' if result else '#c62828' }};">
+                        {{ '✓ Правильно!' if result else '✗ Неверно' }}
+                    </strong>
+                    {% if not result %}
+                    <p style="margin-top:8px; font-size:0.9rem;">
+                        Правильный ответ: {{ current_question.answers[current_question.correct_answer] }}
+                    </p>
+                    {% endif %}
+                </div>
+                <form method="POST">
+                    <button type="submit" class="btn" style="width:100%; text-align:center; font-size:1rem; padding:13px;">
+                        Следующий вопрос →
+                    </button>
+                </form>
+            {% else %}
             <form method="POST">
                 <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:25px;">
-                    {% for i in range(checkpoint.quiz_answers|length) %}
+                    {% for i in range(current_question.answers|length) %}
                     <label style="display:flex; align-items:center; gap:12px;
                                   background:#f9f9f9; border:2px solid #e0e0e0;
                                   border-radius:8px; padding:14px 16px; cursor:pointer;
@@ -42,7 +65,7 @@
                         <input type="radio" name="answer" value="{{ i }}"
                                style="width:18px; height:18px; accent-color:#8b1a1a;" required>
                         <span style="font-size:0.93rem;">
-                            {{ checkpoint.quiz_answers[i] }}
+                            {{ current_question.answers[i] }}
                         </span>
                     </label>
                     {% endfor %}
@@ -52,52 +75,49 @@
                     Ответить →
                 </button>
             </form>
+            {% endif %}
 
-            {% elif result %}
+            {% elif quiz_completed %}
 
             <div style="text-align:center; padding:10px 0;">
+                {% if correct_answers == total_questions %}
                 <div style="font-size:4rem; margin-bottom:12px;">🎉</div>
-                <h3 style="color:#2e7d32; font-size:1.4rem; margin-bottom:12px;">Правильно!</h3>
+                <h3 style="color:#2e7d32; font-size:1.4rem; margin-bottom:12px;">Отлично!</h3>
                 <p style="color:#555; line-height:1.7; margin-bottom:20px;">
+                    Вы правильно ответили на все {{ total_questions }} вопроса!<br>
                     Точка засчитана в ваш прогресс.
                 </p>
-                <div style="background:#e8f5e9; border-radius:8px; padding:14px;
-                            margin-bottom:20px; text-align:left;">
-                    <strong style="color:#2e7d32;">✓ Ответ:</strong>
-                    <span style="margin-left:8px;">
-                        {{ checkpoint.quiz_answers[checkpoint.correct_answer] }}
-                    </span>
-                </div>
-                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-                    {% if next_cp %}
-                    <a href="{{ url_for('checkpoint', route_id=route.id, checkpoint_id=next_cp.id) }}"
-                       class="btn btn-success">Следующая точка →</a>
-                    {% endif %}
-                    <a href="{{ url_for('route_detail', route_id=route.id) }}"
-                       class="btn">← К маршруту</a>
-                </div>
-            </div>
-
-            {% else %}
-
-            <div style="text-align:center; padding:10px 0;">
-                <div style="font-size:4rem; margin-bottom:12px;">😔</div>
-                <h3 style="color:#c62828; font-size:1.4rem; margin-bottom:12px;">Неверно</h3>
+                {% else %}
+                <div style="font-size:4rem; margin-bottom:12px;">📚</div>
+                <h3 style="color:#8b1a1a; font-size:1.4rem; margin-bottom:12px;">Попробуйте ещё раз</h3>
                 <p style="color:#555; line-height:1.7; margin-bottom:20px;">
-                    Не расстраивайтесь, попробуйте ещё раз!
+                    Вы ответили правильно на {{ correct_answers }} из {{ total_questions }} вопросов.<br>
+                    Для прохождения точки нужно ответить на все вопросы правильно.
                 </p>
-                <div style="background:#ffebee; border-radius:8px; padding:14px;
+                {% endif %}
+
+                <div style="background:#f5f0e8; border-radius:8px; padding:14px;
                             margin-bottom:20px; text-align:left;">
-                    <strong style="color:#c62828;">Правильный ответ:</strong>
+                    <strong style="color:#8b1a1a;">Результат:</strong>
                     <span style="margin-left:8px;">
-                        {{ checkpoint.quiz_answers[checkpoint.correct_answer] }}
+                        {{ correct_answers }} / {{ total_questions }} правильных ответов
                     </span>
                 </div>
+
                 <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-                    <a href="{{ url_for('quiz', route_id=route.id, checkpoint_id=checkpoint.id) }}"
-                       class="btn">↺ Попробовать снова</a>
-                    <a href="{{ url_for('route_detail', route_id=route.id) }}"
-                       class="btn btn-secondary">← Маршрут</a>
+                    {% if correct_answers == total_questions %}
+                        {% if next_cp %}
+                        <a href="{{ url_for('checkpoint', route_id=route.id, checkpoint_id=next_cp.id) }}"
+                           class="btn btn-success">Следующая точка →</a>
+                        {% endif %}
+                        <a href="{{ url_for('route_detail', route_id=route.id) }}"
+                           class="btn">← К маршруту</a>
+                    {% else %}
+                        <a href="{{ url_for('reset_quiz', route_id=route.id, checkpoint_id=checkpoint.id) }}"
+                           class="btn">↺ Пройти заново</a>
+                        <a href="{{ url_for('route_detail', route_id=route.id) }}"
+                           class="btn btn-secondary">← К маршруту</a>
+                    {% endif %}
                 </div>
             </div>
 

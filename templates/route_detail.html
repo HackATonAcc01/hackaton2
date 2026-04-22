@@ -55,17 +55,27 @@
                     {% if cp.id in progress %}
                     <span style="color:#2e7d32; font-size:0.78rem; white-space:nowrap;">✓ Пройдено</span>
                     {% endif %}
+                    {% if user_logged_in and cp.id in favorites %}
+                    <span style="color:#f9a825; font-size:0.78rem; white-space:nowrap;">★ Избранное</span>
+                    {% endif %}
                 </div>
                 <p style="color:#888; font-size:0.82rem; margin-left:36px;">
                     📌 {{ cp.address }}
                 </p>
             </div>
-            <div style="flex-shrink:0;">
+            <div style="flex-shrink:0; display:flex; gap:8px;">
                 <a href="{{ url_for('checkpoint', route_id=route.id, checkpoint_id=cp.id) }}"
                    class="btn {{ 'btn-success' if cp.id in progress else '' }}"
                    style="padding:8px 14px; font-size:0.83rem;">
                     {{ 'Повторить' if cp.id in progress else 'Посетить' }}
                 </a>
+                {% if user_logged_in %}
+                <button onclick="toggleFavoriteFromList({{ route.id }}, {{ cp.id }}, this)"
+                        class="btn {{ 'btn-success' if cp.id in favorites else 'btn-secondary' }}"
+                        style="padding:8px 14px; font-size:0.83rem;">
+                    {{ '★' if cp.id in favorites else '☆' }}
+                </button>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
@@ -100,4 +110,33 @@
     </div>
 
 </div>
+
+<script>
+function toggleFavoriteFromList(routeId, checkpointId, button) {
+    fetch(`/route/${routeId}/checkpoint/${checkpointId}/toggle_favorite`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            if (data.action === 'added') {
+                button.textContent = '★';
+                button.classList.remove('btn-secondary');
+                button.classList.add('btn-success');
+            } else {
+                button.textContent = '☆';
+                button.classList.remove('btn-success');
+                button.classList.add('btn-secondary');
+            }
+            // Перезагружаем страницу для обновления меток "Избранное"
+            location.reload();
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+
 {% endblock %}

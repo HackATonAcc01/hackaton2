@@ -28,14 +28,23 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         header h1 { font-size: 1.3rem; }
-        nav a {
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .nav-right a, .nav-right #profilelabel {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
             font-size: 0.95rem;
             opacity: 0.9;
+            transition: opacity 0.2s;
+            cursor: pointer;
         }
-        nav a:hover { opacity: 1; text-decoration: underline; }
+        .nav-right a:hover, .nav-right #profilelabel:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
         main {
             max-width: 1100px;
             margin: 30px auto;
@@ -74,7 +83,6 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-        /* Безопасный контейнер для iframe карт */
         .map-container {
             position: relative;
             overflow: hidden;
@@ -87,31 +95,35 @@
             border: none;
             display: block;
         }
+        #profile {
+            position: relative;
+        }
     </style>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 <body>
-<nav>
-        <h1>Многонациональная Самара</h1>
+<header>
+    <h1>Многонациональная Самара</h1>
+    <div class="nav-right">
         <div id="profile">
-            <h2 id="profilelabel" style="margin:0; font-size: 1.2rem; color: #007bff;">Войти</h2>
+            <h2 id="profilelabel" style="margin:0; font-size: 0.95rem; font-weight: normal;">Войти</h2>
             <div id="options">
-                               <br>
-				<a href="/edit" id="f">Ред. <br>профиль</a>
-				<br>
-				<a href="/liked" id="s">Избранные<br> точки</a>
-				<br>
-				<a href="/logout" id="t">Выйти</a>
-
+                <br>
+                <a href="/edit" id="f">Ред. <br>профиль</a>
+                <br>
+                <a href="/liked" id="s">Избранные<br> точки</a>
+                <br>
+                <a href="/logout" id="t">Выйти</a>
             </div>
         </div>
-    </nav>
+        <a href="/sources">Источники</a>
+    </div>
+</header>
 
 <main>
     {% block content %}{% endblock %}
 </main>
-
 
 </body>
 </html>

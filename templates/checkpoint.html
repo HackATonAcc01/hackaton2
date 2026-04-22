@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
 {% block title %}{{ checkpoint.name }}{% endblock %}
 
 {% block content %}
 
 <div style="font-size:0.85rem; color:#888; margin-bottom:20px;">
-    <a href="{{ url_for('routes_list') }}" style="color:#8b1a1a;">Маршруты</a> →
+    <a href="/" style="color:#8b1a1a;">Маршруты</a> →
     <a href="{{ url_for('route_detail', route_id=route.id) }}"
        style="color:#8b1a1a;">{{ route.title }}</a> →
     {{ checkpoint.name }}

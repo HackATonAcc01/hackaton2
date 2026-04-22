@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+        <script src="/static/scripts/main.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Народы Самары{% endblock %}</title>
@@ -86,7 +88,7 @@
             display: block;
         }
     </style>
-        <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 <body>
@@ -98,7 +100,7 @@
                                <br>
 				<a href="/edit" id="f">Ред. <br>профиль</a>
 				<br>
-				<a href="/liked" id="s">Избранные<br> игры</a>
+				<a href="/liked" id="s">Избранные<br> точки</a>
 				<br>
 				<a href="/logout" id="t">Выйти</a>
 

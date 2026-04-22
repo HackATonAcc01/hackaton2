@@ -8,43 +8,55 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
-		<link rel="stylesheet" type="text/css" href="../static/css/log.css"/>
-		<link rel="stylesheet" type="text/css" href="../static/css/validate_email.css"/>
+
+        <link rel="stylesheet" type="text/css" href="../static/css/form_.css"/>
 
 
     </head>
     <body>
-		<div class="navigation">
-            <h1>FINDKEY</h1>
-			<h2>подтверждение почты</h2>
-        
+    <nav>
+        <h1>Многонациональная Самара</h1>
+        <h2> подтвердите почту </h2>
+    </nav>
+
+    <!-- Основной контейнер для центровки -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+
+                <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        {{ form.code.label(id="login") }}
+                        {{ form.code(class="form-control") }}
+
+                        {% for error in form.code.errors %}
+                            <div class="alert alert-danger mt-2" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="text-center mt-4">
+                        {{ form.submit(type="submit", class="btn btn-primary btn-block", id="submit") }}
+                    </div>
+
+                    {% if message %}
+                        <div class="alert alert-danger mt-3 text-center" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                </form>
+
+                <!-- Ссылка, если нужно вернуться назад -->
+                <div class="text-center mt-4">
+                    <a href="/register" id="back">Назад к регистрации</a>
+                </div>
+
+            </div>
         </div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-<form action="" method="post" novalidate>
-    {{ form.hidden_tag() }}
-    <p>
-        {{ form.code.label(id="login") }}<br>
-        {{ form.code(class="form-control") }}<br>
-        {% for error in form.code.errors %}
-    <div class="alert alert-danger" role="alert">
-        {{ error }}
     </div>
-    {% endfor %}
-    </p>
-    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
-	{% if message %}
-			<div class="alert alert-danger" role="alert">
-        		{{ message }}
-    		</div>
-	{% endif %}
-</form>
-	</body>
+</body>
+
 </html>

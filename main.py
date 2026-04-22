@@ -30,10 +30,10 @@ db_sess = db_session.create_session()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = str(uuid.uuid4())
-app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_SERVER']='smtp.yandex.ru'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'mail.findkey@gmail.com'
-app.config['MAIL_PASSWORD'] = 'krvv vtpp ismn eddd'
+app.config['MAIL_USERNAME'] = 'volganations@yandex.ru'
+app.config['MAIL_PASSWORD'] = 'hzhdvplckcynmpig'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['SCHEDULER_API_ENABLED'] = True
@@ -118,7 +118,7 @@ def validate():
         ver.code = code_
         msg = Message(
             'Код подтверждения',
-            sender='mail.findkey@gmail.com',
+            sender='volganations@yandex.ru',
             recipients=[cookie]
         )
         msg.body = f'Код подтверждения: {code_}'
@@ -129,14 +129,14 @@ def validate():
 
     return render_template('validatemail.html', title='Подтверждение почты', form=form)
 
-# @app.route('/logout', methods=['GET', 'POST'])
-# def logout():
-#     res = flask.make_response(redirect('/'))
-#     res.set_cookie("mail_", value="", expires=0)
-#     res.set_cookie("login_", value="", expires=0)
-#     res.set_cookie("password_", value="", expires=0)
-#     return res
-#
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    res = flask.make_response(redirect('/'))
+    res.set_cookie("mail_", value="", expires=0)
+    res.set_cookie("login_", value="", expires=0)
+    res.set_cookie("password_", value="", expires=0)
+    return res
+
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
     form = EditForm()
@@ -1290,13 +1290,7 @@ ROUTES = {
 #     return render_template('index.html', routes=ROUTES)
 
 
-@app.route('/routes')
-def routes_list():
-    theme_filter = flask.request.args.get('theme', '')
-    filtered = ROUTES
-    if theme_filter:
-        filtered = {k: v for k, v in ROUTES.items() if v['theme'] == theme_filter}
-    return render_template('routes.html', routes=filtered, theme_filter=theme_filter)
+
 
 
 @app.route('/route/<int:route_id>')

@@ -256,9 +256,23 @@ ROUTES = {
                     '&z=16'
                     '&pt=43.990733%2C56.32389%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какое произведение Горький написал о своём детстве в этом доме?',
-                'quiz_answers': ['Мать', 'На дне', 'Детство', 'Старуха Изергиль'],
-                'correct_answer': 2
+                'quiz': [
+                    {
+                        'question': 'Какое произведение Горький написал о своём детстве в этом доме?',
+                        'answers': ['Мать', 'На дне', 'Детство', 'Старуха Изергиль'],
+                        'correct_answer': 2
+                    },
+                    {
+                        'question': 'Кем приходился Каширин маленькому Алёше Пешкову?',
+                        'answers': ['Отцом', 'Дедом', 'Дядей', 'Братом'],
+                        'correct_answer': 1
+                    },
+                    {
+                        'question': 'Настоящее имя Максима Горького?',
+                        'answers': ['Алексей Пешков', 'Иван Каширин', 'Михаил Горький', 'Пётр Максимов'],
+                        'correct_answer': 0
+                    }
+                ]
             },
             {
                 'id': 2,
@@ -285,9 +299,23 @@ ROUTES = {
                     '&z=14'
                     '&pt=43.658593%2C52.992637%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какой поэт провёл детство в усадьбе Тарханы?',
-                'quiz_answers': ['Михаил Лермонтов', 'Александр Пушкин', 'Сергей Есенин', 'Николай Некрасов'],
-                'correct_answer': 0
+                'quiz': [
+                    {
+                        'question': 'Какой поэт провёл детство в усадьбе Тарханы?',
+                        'answers': ['Михаил Лермонтов', 'Александр Пушкин', 'Сергей Есенин', 'Николай Некрасов'],
+                        'correct_answer': 0
+                    },
+                    {
+                        'question': 'Сколько лет Лермонтов провёл в Тарханах?',
+                        'answers': ['5 лет', '10 лет', '13 лет', '20 лет'],
+                        'correct_answer': 2
+                    },
+                    {
+                        'question': 'Где похоронен М.Ю. Лермонтов?',
+                        'answers': ['В Москве', 'В Петербурге', 'В Тарханах', 'На Кавказе'],
+                        'correct_answer': 2
+                    }
+                ]
             },
             {
                 'id': 3,
@@ -314,9 +342,23 @@ ROUTES = {
                     '&z=16'
                     '&pt=48.396481%2C54.314510%2Cpm2rdl'
                 ),
-                'quiz_question': 'Как назывался Ульяновск во времена Гончарова?',
-                'quiz_answers': ['Казань', 'Самара', 'Саратов', 'Симбирск'],
-                'correct_answer': 3
+                'quiz': [
+                    {
+                        'question': 'Как назывался Ульяновск во времена Гончарова?',
+                        'answers': ['Казань', 'Самара', 'Саратов', 'Симбирск'],
+                        'correct_answer': 3
+                    },
+                    {
+                        'question': 'Какой знаменитый роман написал И.А. Гончаров?',
+                        'answers': ['Евгений Онегин', 'Обломов', 'Война и мир', 'Мёртвые души'],
+                        'correct_answer': 1
+                    },
+                    {
+                        'question': 'В каком году Симбирск переименовали в Ульяновск?',
+                        'answers': ['1917', '1924', '1930', '1945'],
+                        'correct_answer': 1
+                    }
+                ]
             },
             {
                 'id': 4,
@@ -343,9 +385,23 @@ ROUTES = {
                     '&z=16'
                     '&pt=49.129653%2C55.793505%2Cpm2rdl'
                 ),
-                'quiz_question': 'Как называется повесть Горького о казанском периоде жизни?',
-                'quiz_answers': ['Детство', 'В людях', 'Мои университеты', 'На дне'],
-                'correct_answer': 2
+                'quiz': [
+                    {
+                        'question': 'Как называется повесть Горького о казанском периоде жизни?',
+                        'answers': ['Детство', 'В людях', 'Мои университеты', 'На дне'],
+                        'correct_answer': 2
+                    },
+                    {
+                        'question': 'Кем работал молодой Горький в Казани?',
+                        'answers': ['Учителем', 'Пекарем', 'Библиотекарем', 'Кузнецом'],
+                        'correct_answer': 1
+                    },
+                    {
+                        'question': 'В каком году Горький приехал в Казань?',
+                        'answers': ['1880', '1884', '1890', '1895'],
+                        'correct_answer': 1
+                    }
+                ]
             },
             {
                 'id': 5,
@@ -373,9 +429,23 @@ ROUTES = {
                     '&z=16'
                     '&pt=52.072013%2C55.755150%2Cpm2rdl'
                 ),
-                'quiz_question': 'В каком году Цветаева была эвакуирована в Елабугу?',
-                'quiz_answers': ['1939', '1940', '1942', '1941'],
-                'correct_answer': 3
+                'quiz': [
+                    {
+                        'question': 'В каком году Цветаева была эвакуирована в Елабугу?',
+                        'answers': ['1939', '1940', '1942', '1941'],
+                        'correct_answer': 3
+                    },
+                    {
+                        'question': 'Какой жанр литературы был основным для Цветаевой?',
+                        'answers': ['Проза', 'Драматургия', 'Поэзия', 'Публицистика'],
+                        'correct_answer': 2
+                    },
+                    {
+                        'question': 'Сколько времени Цветаева прожила в Елабуге?',
+                        'answers': ['Несколько дней', 'Несколько недель', 'Год', 'Два года'],
+                        'correct_answer': 1
+                    }
+                ]
             }
         ]
     },
@@ -428,9 +498,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=50.145226%2C53.212701%2Cpm2rdl'
                 ),
-                'quiz_question': 'Как называлась Самара в советское время?',
-                'quiz_answers': ['Куйбышев', 'Сталинград', 'Горький', 'Свердловск'],
-                'correct_answer': 0
+                'quiz': [
+                    {'question': 'Как называлась Самара в советское время?',
+                     'answers': ['Куйбышев', 'Сталинград', 'Горький', 'Свердловск'], 'correct_answer': 0},
+                    {'question': 'Какая ракета установлена у входа в музей?',
+                     'answers': ['Восток', 'Союз', 'Протон', 'Ангара'], 'correct_answer': 1},
+                    {'question': 'Чему посвящён музей «Самара Космическая»?',
+                     'answers': ['Авиации', 'Космонавтике', 'Флоту', 'Танкам'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 2,
@@ -461,9 +536,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=49.249808%2C53.553031%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какой автомобильный гигант расположен в Тольятти?',
-                'quiz_answers': ['ГАЗ', 'КАМАЗ', 'УАЗ', 'АвтоВАЗ'],
-                'correct_answer': 3
+                'quiz': [
+                    {'question': 'Какой автомобильный гигант расположен в Тольятти?',
+                     'answers': ['ГАЗ', 'КАМАЗ', 'УАЗ', 'АвтоВАЗ'], 'correct_answer': 3},
+                    {'question': 'Сколько экспонатов в музее?', 'answers': ['100', '250', '460', '600'],
+                     'correct_answer': 2},
+                    {'question': 'Какая подводная лодка есть в музее?',
+                     'answers': ['Б-307', 'К-19', 'Курск', 'Комсомолец'], 'correct_answer': 0}
+                ]
             },
             {
                 'id': 3,
@@ -491,9 +571,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=48.234580%2C54.289727%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какой тяжёлый транспортный самолёт производили в Ульяновске?',
-                'quiz_answers': ['Ил-76', 'Ту-154', 'Ан-124 «Руслан»', 'Су-27'],
-                'correct_answer': 2
+                'quiz': [
+                    {'question': 'Какой тяжёлый транспортный самолёт производили в Ульяновске?',
+                     'answers': ['Ил-76', 'Ту-154', 'Ан-124 «Руслан»', 'Су-27'], 'correct_answer': 2},
+                    {'question': 'Сколько самолётов в музее?', 'answers': ['10', '20', '30', '50'],
+                     'correct_answer': 2},
+                    {'question': 'Какой сверхзвуковой пассажирский самолёт есть в музее?',
+                     'answers': ['Ту-144', 'Конкорд', 'Ту-154', 'Ил-62'], 'correct_answer': 0}
+                ]
             },
             {
                 'id': 4,
@@ -523,9 +608,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=52.446574%2C55.74731%2Cpm2rdl'
                 ),
-                'quiz_question': 'В каком ралли команда «КАМАЗ-мастер» побеждала более 19 раз?',
-                'quiz_answers': ['Баха', 'Ралли Монте-Карло', 'Шёлковый путь', 'Дакар'],
-                'correct_answer': 3
+                'quiz': [
+                    {'question': 'В каком ралли команда «КАМАЗ-мастер» побеждала более 19 раз?',
+                     'answers': ['Баха', 'Ралли Монте-Карло', 'Шёлковый путь', 'Дакар'], 'correct_answer': 3},
+                    {'question': 'Сколько побед у команды КАМАЗ-мастер?', 'answers': ['5', '10', '19', '25'],
+                     'correct_answer': 2},
+                    {'question': 'Что производит завод КАМАЗ?',
+                     'answers': ['Легковые авто', 'Грузовики', 'Автобусы', 'Танки'], 'correct_answer': 1}
+                ]
             }
         ]
     },
@@ -576,9 +666,15 @@ ROUTES = {
                     '&z=16'
                     '&pt=43.245493%2C55.040409%2Cpm2rdl'
                 ),
-                'quiz_question': 'С каким святым связан Дивеевский монастырь?',
-                'quiz_answers': ['Сергий Радонежский', 'Серафим Саровский', 'Николай Чудотворец', 'Александр Невский'],
-                'correct_answer': 1
+                'quiz': [
+                    {'question': 'С каким святым связан Дивеевский монастырь?',
+                     'answers': ['Сергий Радонежский', 'Серафим Саровский', 'Николай Чудотворец', 'Александр Невский'],
+                     'correct_answer': 1},
+                    {'question': 'Какой это монастырь?', 'answers': ['Мужской', 'Женский', 'Смешанный', 'Детский'],
+                     'correct_answer': 1},
+                    {'question': 'В каком году канонизирован Серафим Саровский?',
+                     'answers': ['1801', '1903', '1917', '1991'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 2,
@@ -608,9 +704,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=48.731677%2C55.903792%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какая икона является главной святыней Раифского монастыря?',
-                'quiz_answers': ['Казанская', 'Владимирская', 'Грузинская', 'Иверская'],
-                'correct_answer': 2
+                'quiz': [
+                    {'question': 'Какая икона является главной святыней Раифского монастыря?',
+                     'answers': ['Казанская', 'Владимирская', 'Грузинская', 'Иверская'], 'correct_answer': 2},
+                    {'question': 'В каком веке основан монастырь?', 'answers': ['XV', 'XVI', 'XVII', 'XVIII'],
+                     'correct_answer': 2},
+                    {'question': 'Это какой монастырь?', 'answers': ['Мужской', 'Женский', 'Смешанный', 'Детский'],
+                     'correct_answer': 0}
+                ]
             },
             {
                 'id': 3,
@@ -640,9 +741,15 @@ ROUTES = {
                     '&z=16'
                     '&pt=56.230037%2C57.392215%2Cpm2rdl'
                 ),
-                'quiz_question': 'Как называют Белогорский монастырь?',
-                'quiz_answers': ['Уральский Иерусалим', 'Уральская Лавра', 'Уральский Афон', 'Уральский Ватикан'],
-                'correct_answer': 2
+                'quiz': [
+                    {'question': 'Как называют Белогорский монастырь?',
+                     'answers': ['Уральский Иерусалим', 'Уральская Лавра', 'Уральский Афон', 'Уральский Ватикан'],
+                     'correct_answer': 2},
+                    {'question': 'На какой горе расположен монастырь?',
+                     'answers': ['Красной', 'Белой', 'Чёрной', 'Синей'], 'correct_answer': 1},
+                    {'question': 'Какое место по величине занимает собор?',
+                     'answers': ['Первое', 'Второе', 'Третье', 'Четвёртое'], 'correct_answer': 2}
+                ]
             },
             {
                 'id': 4,
@@ -672,9 +779,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=45.064338%2C56.083459%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какая знаменитая ярмарка зародилась у стен этого монастыря?',
-                'quiz_answers': ['Ирбитская', 'Нижегородская', 'Казанская', 'Симбирская'],
-                'correct_answer': 1
+                'quiz': [
+                    {'question': 'Какая знаменитая ярмарка зародилась у стен этого монастыря?',
+                     'answers': ['Ирбитская', 'Нижегородская', 'Казанская', 'Симбирская'], 'correct_answer': 1},
+                    {'question': 'В каком веке основан монастырь?', 'answers': ['XIII', 'XIV', 'XV', 'XVI'],
+                     'correct_answer': 2},
+                    {'question': 'На берегу какой реки расположен монастырь?',
+                     'answers': ['Ока', 'Кама', 'Волга', 'Дон'], 'correct_answer': 2}
+                ]
             },
             {
                 'id': 5,
@@ -704,9 +816,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=45.181674%2C54.181612%2Cpm2rdl'
                 ),
-                'quiz_question': 'Кем был Феодор Ушаков до канонизации?',
-                'quiz_answers': ['Монах', 'Купец', 'Архитектор', 'Адмирал'],
-                'correct_answer': 3
+                'quiz': [
+                    {'question': 'Кем был Феодор Ушаков до канонизации?',
+                     'answers': ['Монах', 'Купец', 'Архитектор', 'Адмирал'], 'correct_answer': 3},
+                    {'question': 'Сколько сражений проиграл Ушаков?', 'answers': ['Ни одного', 'Одно', 'Два', 'Три'],
+                     'correct_answer': 0},
+                    {'question': 'В каком городе находится собор?', 'answers': ['Саранск', 'Самара', 'Казань', 'Пенза'],
+                     'correct_answer': 0}
+                ]
             }
         ]
     },
@@ -760,9 +877,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=44.003417%2C556.328120%2Cpm2rdl'
                 ),
-                'quiz_question': 'Сколько башен у Нижегородского кремля?',
-                'quiz_answers': ['9', '20', '13', '7'],
-                'correct_answer': 2
+                'quiz': [
+                    {'question': 'Сколько башен у Нижегородского кремля?', 'answers': ['9', '20', '13', '7'],
+                     'correct_answer': 2},
+                    {'question': 'Был ли кремль взят штурмом?', 'answers': ['Да', 'Нет', 'Один раз', 'Два раза'],
+                     'correct_answer': 1},
+                    {'question': 'В каком веке построен кремль?', 'answers': ['XIV', 'XV', 'XVI', 'XVII'],
+                     'correct_answer': 2}
+                ]
             },
             {
                 'id': 2,
@@ -793,9 +915,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=50.097857%2C53.196683%2Cpm2rdl'
                 ),
-                'quiz_question': 'На какой глубине расположен бункер Сталина в Самаре?',
-                'quiz_answers': ['12 метров', '37 метров', '25 метров', '50 метров'],
-                'correct_answer': 1
+                'quiz': [
+                    {'question': 'На какой глубине расположен бункер Сталина?',
+                     'answers': ['12 метров', '37 метров', '25 метров', '50 метров'], 'correct_answer': 1},
+                    {'question': 'В каком году узнали о бункере?', 'answers': ['1945', '1960', '1990', '2000'],
+                     'correct_answer': 2},
+                    {'question': 'Для чего был построен бункер?',
+                     'answers': ['Склад', 'Командный пункт', 'Больница', 'Тюрьма'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 3,
@@ -825,9 +952,14 @@ ROUTES = {
                     '&z=14'
                     '&pt=48.661172%2C55.772000%2Cpm2rdl'
                 ),
-                'quiz_question': 'За какой срок была построена крепость Свияжск?',
-                'quiz_answers': ['1 год', '6 месяцев', '3 дня', '4 недели'],
-                'correct_answer': 3
+                'quiz': [
+                    {'question': 'За какой срок была построена крепость Свияжск?',
+                     'answers': ['1 год', '6 месяцев', '3 дня', '4 недели'], 'correct_answer': 3},
+                    {'question': 'Кто основал Свияжск?',
+                     'answers': ['Пётр I', 'Иван Грозный', 'Екатерина II', 'Александр I'], 'correct_answer': 1},
+                    {'question': 'Для чего был построен Свияжск?',
+                     'answers': ['Торговля', 'Взятие Казани', 'Оборона', 'Монастырь'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 4,
@@ -857,9 +989,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=53.206784%2C56.850721%2Cpm2rdl'
                 ),
-                'quiz_question': 'В каком году основан Ижевский оружейный завод?',
-                'quiz_answers': ['1807', '1850', '1762', '1917'],
-                'correct_answer': 0
+                'quiz': [
+                    {'question': 'В каком году основан Ижевский оружейный завод?',
+                     'answers': ['1807', '1850', '1762', '1917'], 'correct_answer': 0},
+                    {'question': 'Чему посвящён музей?',
+                     'answers': ['Танкам', 'Стрелковому оружию', 'Артиллерии', 'Флоту'], 'correct_answer': 1},
+                    {'question': 'Какой знаменитый конструктор работал в Ижевске?',
+                     'answers': ['Королёв', 'Калашников', 'Туполев', 'Кошкин'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 5,
@@ -888,9 +1025,16 @@ ROUTES = {
                     '&z=15'
                     '&pt=55.108391%2C51.755434%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какое произведение Пушкин написал после посещения Оренбурга?',
-                'quiz_answers': ['Евгений Онегин', 'Дубровский', 'Капитанская дочка', 'Борис Годунов'],
-                'correct_answer': 2
+                'quiz': [
+                    {'question': 'Какое произведение Пушкин написал после посещения Оренбурга?',
+                     'answers': ['Евгений Онегин', 'Дубровский', 'Капитанская дочка', 'Борис Годунов'],
+                     'correct_answer': 2},
+                    {'question': 'Кто осаждал крепость?', 'answers': ['Наполеон', 'Пугачёв', 'Разин', 'Болотников'],
+                     'correct_answer': 1},
+                    {'question': 'На границе каких частей света стоит крепость?',
+                     'answers': ['Европы и Азии', 'Азии и Африки', 'Европы и Африки', 'Азии и Америки'],
+                     'correct_answer': 0}
+                ]
             }
         ]
     },
@@ -946,9 +1090,15 @@ ROUTES = {
                     '&z=16'
                     '&pt=43.961313%2C56.328324%2Cpm2rdl'
                 ),
-                'quiz_question': 'Как образно называли Нижний Новгород за его торговое значение?',
-                'quiz_answers': ['Ворота России', 'Карман России', 'Сердце России', 'Окно в Европу'],
-                'correct_answer': 1
+                'quiz': [
+                    {'question': 'Как образно называли Нижний Новгород?',
+                     'answers': ['Ворота России', 'Карман России', 'Сердце России', 'Окно в Европу'],
+                     'correct_answer': 1},
+                    {'question': 'Какой по величине была ярмарка в мире?',
+                     'answers': ['Первой', 'Второй', 'Третьей', 'Четвёртой'], 'correct_answer': 2},
+                    {'question': 'Сколько дней работала ярмарка?', 'answers': ['10', '30', '60', '90'],
+                     'correct_answer': 1}
+                ]
             },
             {
                 'id': 2,
@@ -979,9 +1129,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=50.096159%2C53.193975%2Cpm2rdl'
                 ),
-                'quiz_question': 'В каком архитектурном стиле построен особняк Курлиной?',
-                'quiz_answers': ['Классицизм', 'Барокко', 'Готика', 'Модерн'],
-                'correct_answer': 3
+                'quiz': [
+                    {'question': 'В каком стиле построен особняк Курлиной?',
+                     'answers': ['Классицизм', 'Барокко', 'Готика', 'Модерн'], 'correct_answer': 3},
+                    {'question': 'Что особенного в особняке?', 'answers': ['Витражи', 'Фонтаны', 'Лифт', 'Бассейн'],
+                     'correct_answer': 0},
+                    {'question': 'Кем была Курлина?',
+                     'answers': ['Купчихой', 'Актрисой', 'Писательницей', 'Учительницей'], 'correct_answer': 0}
+                ]
             },
             {
                 'id': 3,
@@ -1012,9 +1167,14 @@ ROUTES = {
                     '&z=14'
                     '&pt=52.056050%2C55.756189%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какой знаменитый художник родился в Елабуге?',
-                'quiz_answers': ['Илья Репин', 'Иван Шишкин', 'Василий Суриков', 'Карл Брюллов'],
-                'correct_answer': 1
+                'quiz': [
+                    {'question': 'Какой знаменитый художник родился в Елабуге?',
+                     'answers': ['Илья Репин', 'Иван Шишкин', 'Василий Суриков', 'Карл Брюллов'], 'correct_answer': 1},
+                    {'question': 'Чем известна Елабуга?',
+                     'answers': ['Крепостью', 'Купеческими домами', 'Фабриками', 'Мостами'], 'correct_answer': 1},
+                    {'question': 'Какая поэтесса жила в Елабуге?',
+                     'answers': ['Ахматова', 'Цветаева', 'Пушкина', 'Берггольц'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 4,
@@ -1045,9 +1205,16 @@ ROUTES = {
                     '&z=16'
                     '&pt=45.017692%2C53.194220%2Cpm2rdl'
                 ),
-                'quiz_question': 'Как называют пешеходную улицу Московскую в Пензе?',
-                'quiz_answers': ['Пензенский Невский', 'Пензенский Бродвей', 'Пензенский Арбат', 'Пензенский бульвар'],
-                'correct_answer': 2
+                'quiz': [
+                    {'question': 'Как называют улицу Московскую в Пензе?',
+                     'answers': ['Пензенский Невский', 'Пензенский Бродвей', 'Пензенский Арбат', 'Пензенский бульвар'],
+                     'correct_answer': 2},
+                    {'question': 'Какой уникальный музей есть на улице?',
+                     'answers': ['Музей одной картины', 'Музей одной книги', 'Музей одной статуи', 'Музей одной песни'],
+                     'correct_answer': 0},
+                    {'question': 'Что характерно для улицы?',
+                     'answers': ['Фонтаны', 'Купеческая застройка', 'Небоскрёбы', 'Парки'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 5,
@@ -1079,9 +1246,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=46.021770%2C51.532307%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какое музыкальное учебное заведение находится на пр. Столыпина?',
-                'quiz_answers': ['Училище', 'Академия', 'Лицей', 'Консерватория'],
-                'correct_answer': 3
+                'quiz': [
+                    {'question': 'Какое учебное заведение находится на пр. Столыпина?',
+                     'answers': ['Училище', 'Академия', 'Лицей', 'Консерватория'], 'correct_answer': 3},
+                    {'question': 'Какое место по старшинству занимает консерватория?',
+                     'answers': ['Первое', 'Второе', 'Третье', 'Четвёртое'], 'correct_answer': 2},
+                    {'question': 'В честь кого названа улица?',
+                     'answers': ['Столыпин', 'Столетов', 'Стоянов', 'Столбов'], 'correct_answer': 0}
+                ]
             }
         ]
     },
@@ -1137,9 +1309,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=49.290906%2C53.266869%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какие горы расположены на территории Самарской Луки?',
-                'quiz_answers': ['Уральские', 'Жигулёвские', 'Кавказские', 'Хибины'],
-                'correct_answer': 1
+                'quiz': [
+                    {'question': 'Какие горы расположены на территории Самарской Луки?',
+                     'answers': ['Уральские', 'Жигулёвские', 'Кавказские', 'Хибины'], 'correct_answer': 1},
+                    {'question': 'Что такое Самарская Лука?', 'answers': ['Гора', 'Излучина Волги', 'Озеро', 'Лес'],
+                     'correct_answer': 1},
+                    {'question': 'Какого происхождения Жигулёвские горы?',
+                     'answers': ['Вулканического', 'Тектонического', 'Ледникового', 'Эрозионного'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 2,
@@ -1172,9 +1349,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=49.154085%2C55.913672%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какая температура воды в Голубых озёрах круглый год?',
-                'quiz_answers': ['0 °C', '+10 °C', '+4 °C', '+20 °C'],
-                'correct_answer': 2
+                'quiz': [
+                    {'question': 'Какая температура воды в Голубых озёрах круглый год?',
+                     'answers': ['0 °C', '+10 °C', '+4 °C', '+20 °C'], 'correct_answer': 2},
+                    {'question': 'Какая видимость под водой?', 'answers': ['10 м', '20 м', '40 м', '60 м'],
+                     'correct_answer': 2},
+                    {'question': 'Какого происхождения озёра?',
+                     'answers': ['Ледникового', 'Карстового', 'Вулканического', 'Речного'], 'correct_answer': 1}
+                ]
             },
             {
                 'id': 3,
@@ -1207,9 +1389,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=57.006092%2C57.006092%2Cpm2rdl'
                 ),
-                'quiz_question': 'Сколько гротов в Кунгурской ледяной пещере?',
-                'quiz_answers': ['12', '48', '100', '25'],
-                'correct_answer': 1
+                'quiz': [
+                    {'question': 'Сколько гротов в Кунгурской ледяной пещере?', 'answers': ['12', '48', '100', '25'],
+                     'correct_answer': 1},
+                    {'question': 'С какого года проводятся экскурсии?', 'answers': ['1900', '1914', '1925', '1950'],
+                     'correct_answer': 1},
+                    {'question': 'Сколько озёр в пещере?', 'answers': ['20', '50', '70', '100'], 'correct_answer': 2}
+                ]
+
             },
             {
                 'id': 4,
@@ -1242,9 +1429,14 @@ ROUTES = {
                     '&z=16'
                     '&pt=48.311615%2C56.160590%2Cpm2rdl'
                 ),
-                'quiz_question': 'С каким историческим лицом связан знаменитый дуб в «Марий Чодра»?',
-                'quiz_answers': ['Стенька Разин', 'Иван Грозный', 'Пугачёв', 'Пётр I'],
-                'correct_answer': 2
+                'quiz': [
+                    {'question': 'С каким историческим лицом связан дуб в «Марий Чодра»?',
+                     'answers': ['Стенька Разин', 'Иван Грозный', 'Пугачёв', 'Пётр I'], 'correct_answer': 2},
+                    {'question': 'Что охраняется в парке?',
+                     'answers': ['Горы', 'Реликтовые дубравы', 'Степи', 'Пустыни'], 'correct_answer': 1},
+                    {'question': 'Сколько лет дубу Пугачёва?', 'answers': ['100', '200', '400', '600'],
+                     'correct_answer': 2}
+                ]
             },
             {
                 'id': 5,
@@ -1277,9 +1469,15 @@ ROUTES = {
                     '&z=16'
                     '&pt=44.815366%2C56.497214&%2Cpm2rdl'
                 ),
-                'quiz_question': 'Какой статус ЮНЕСКО имеет Керженский заповедник?',
-                'quiz_answers': ['Объект наследия', 'Геопарк', 'Культурный ландшафт', 'Биосферный резерват'],
-                'correct_answer': 3
+                'quiz': [
+                    {'question': 'Какой статус ЮНЕСКО имеет заповедник?',
+                     'answers': ['Объект наследия', 'Геопарк', 'Культурный ландшафт', 'Биосферный резерват'],
+                     'correct_answer': 3},
+                    {'question': 'Сколько видов птиц обитает?', 'answers': ['50', '100', '170', '250'],
+                     'correct_answer': 2},
+                    {'question': 'Что охраняется в заповеднике?',
+                     'answers': ['Горы', 'Степи', 'Леса и болота', 'Пустыни'], 'correct_answer': 2}
+                ]
             }
         ]
     }
@@ -1394,8 +1592,7 @@ def toggle_favorite(checkpoint_id):
                             checkpoint_id=checkpoint_id))
 
 
-@app.route('/route/<int:route_id>/checkpoint/<int:checkpoint_id>/quiz',
-           methods=['GET', 'POST'])
+@app.route('/route/<int:route_id>/checkpoint/<int:checkpoint_id>/quiz', methods=['GET', 'POST'])
 def quiz(route_id, checkpoint_id):
     route = ROUTES.get(route_id)
     if not route:
@@ -1405,28 +1602,88 @@ def quiz(route_id, checkpoint_id):
     if not cp:
         return render_template('404.html'), 404
 
+    session_key = f'quiz_progress_{route_id}_{checkpoint_id}'
+
+    # Инициализация прогресса викторины
+    if session_key not in flask.session:
+        flask.session[session_key] = {
+            'current_question': 0,
+            'correct_answers': 0,
+            'completed': False
+        }
+
+    quiz_progress = flask.session[session_key]
+    current_q_index = quiz_progress['current_question']
+    quiz_questions = cp.get('quiz', [])
+
     result = None
-    if flask.request.method == 'POST':
-        user_answer = flask.request.form.get('answer', type=int)
-        result = (user_answer == cp['correct_answer'])
-        if result:
-            session_key = f'progress_{route_id}'
-            progress = flask.session.get(session_key, [])
-            if checkpoint_id not in progress:
-                progress.append(checkpoint_id)
-                flask.session[session_key] = progress
+    quiz_completed = quiz_progress.get('completed', False)
+    show_next_button = False
+
+    if flask.request.method == 'POST' and not quiz_completed:
+        if 'answer' in flask.request.form:
+            # Пользователь ответил на вопрос
+            user_answer = flask.request.form.get('answer', type=int)
+            current_question = quiz_questions[current_q_index]
+
+            if user_answer == current_question['correct_answer']:
+                quiz_progress['correct_answers'] += 1
+                result = True
+            else:
+                result = False
+
+            show_next_button = True
+            flask.session[session_key] = quiz_progress
+
+        else:
+            # Пользователь нажал "Следующий вопрос"
+            quiz_progress['current_question'] += 1
+
+            # Проверка завершения викторины
+            if quiz_progress['current_question'] >= len(quiz_questions):
+                quiz_progress['completed'] = True
+
+                # Если все ответы правильные, засчитываем точку
+                if quiz_progress['correct_answers'] == len(quiz_questions):
+                    progress_key = f'progress_{route_id}'
+                    progress = flask.session.get(progress_key, [])
+                    if checkpoint_id not in progress:
+                        progress.append(checkpoint_id)
+                        flask.session[progress_key] = progress
+
+            flask.session[session_key] = quiz_progress
+            # Перенаправляем на ту же страницу, чтобы обновить вопрос
+            return redirect(flask.url_for('quiz', route_id=route_id, checkpoint_id=checkpoint_id))
 
     checkpoints = route['checkpoints']
     current_index = next(i for i, c in enumerate(checkpoints) if c['id'] == checkpoint_id)
     next_cp = checkpoints[current_index + 1] if current_index + 1 < len(checkpoints) else None
 
+    # Обновляем current_q_index после возможного изменения
+    current_q_index = quiz_progress['current_question']
+    current_question = quiz_questions[current_q_index] if current_q_index < len(quiz_questions) else None
+
     return render_template(
         'quiz.html',
         route=route,
         checkpoint=cp,
+        current_question=current_question,
+        question_number=current_q_index + 1,
+        total_questions=len(quiz_questions),
         result=result,
+        show_next_button=show_next_button,
+        quiz_completed=quiz_completed,
+        correct_answers=quiz_progress['correct_answers'],
         next_cp=next_cp
     )
+
+
+@app.route('/route/<int:route_id>/checkpoint/<int:checkpoint_id>/reset_quiz')
+def reset_quiz(route_id, checkpoint_id):
+    session_key = f'quiz_progress_{route_id}_{checkpoint_id}'
+    flask.session.pop(session_key, None)
+    return redirect(flask.url_for('quiz', route_id=route_id, checkpoint_id=checkpoint_id))
+
 
 @app.route('/favorites')
 def favorites():

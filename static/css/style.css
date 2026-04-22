@@ -67,94 +67,66 @@ h2 {
   }
 }
 #profile h2:hover ~ #options {
-  border : solid #f4f1de;
-  height: 200px;
-  transition-property: height, border;
-  transition-duration: 1s;
-  transition-delay: 0s;
+    height: 220px;         /* Нужная вам высота */
+    opacity: 1;            /* Появляется */
+    visibility: visible;   /* Становится активным */
+    border-width: 2px;     /* Появляется рамка */
+}
 
-  #f {
-  visibility: visible;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-  transition-delay: 0.2s;
+
+
+
+#profile:hover #options {
+    height: 220px;        /* Высота, до которой раскрываемся */
+    opacity: 1;
+    visibility: visible;
+    border-width: 2px;    /* Рамка тоже плавно растет */
 }
-  #s {
-  visibility: visible;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-  transition-delay: 0.4s;
+
+#f, #s, #t {
+    visibility: hidden; /* Оставляем как в вашей логике анимации */
+    position: static;   /* Возвращаем в нормальный поток */
+    font-family: 'tt_norms', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;        /* Чтобы кликалась вся ширина */
 }
-#t {
-  visibility: visible;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-  transition-delay: 0.6s;
+
+/* При наведении (ваша логика) */
+#profile:hover #f,
+#profile:hover #s,
+#profile:hover #t {
+    visibility: visible;
 }
-}
-#profile #options:hover{
-  border : solid #f4f1de;
-  height: 200px;
-  transition-property: height, border;
-  transition-duration: 1s;
-  transition-delay: 0s;
-  #f {
-  visibility: visible;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-  transition-delay: 0.2s;
-}
-  #s {
-  visibility: visible;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-  transition-delay: 0.4s;
-}
-#t {
-  visibility: visible;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-  transition-delay: 0.6s;
-}
-}
-#profile h2 ~ #options{
-  height: 0px;
-  border-width : 0px;
-  transition-property: height, border-width;
-  transition-duration: 1s;
-  transition-delay: 0.2s;
-  #f {
-  visibility: hidden;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-  transition-delay: 0.4s;
-}
-  #s {
-  visibility: hidden;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-  transition-delay: 0.2s;
-}
-#t {
-  visibility: hidden;
-  transition-property: visibility;
-  transition-duration: 0.2s;
-}
-}
+
 
 #options {
-border : solid #f4f1de;
-border-radius: 12px;
-background : #3d405b;
-width: 100px;
-height: 0px;
-display: block;
-overflow: visible;
-right: 3%;
-  position: fixed;
-  top: 12%;
-position: fixed;
+    /* Позиционирование */
+    position: fixed;
+    top: 10%;
+    right: 3%;
+    width: 150px;
+
+    /* Состояние "Скрыто" */
+    height: 0;            /* Обязательно 0 */
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;     /* КРИТИЧНО: обрезает контент при уменьшении высоты */
+    border: 0 solid #f4f1de;
+
+    /* Стили контента */
+    background: #3d405b;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    /* Анимация: анимируем ВСЕ свойства сразу */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 #txt h1 {
   margin-top: 20vh;
   margin-right: 20vh;
@@ -188,27 +160,6 @@ a:hover {
   color: #e07a5f;
 }
 
-#f {
-  visibility: hidden;
-  padding-left: 12px;
-  position: fixed;
-
-}
-
-
-#s {
-  visibility: hidden;
-  position: fixed;
-  padding-left: 12px;
-  top: 175px;
-}
-
-#t {
-  visibility: hidden;
-  position: fixed;
-  top: 235px;
-  padding-left: 25px;
-}
 
 
 

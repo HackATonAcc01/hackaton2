@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Народы Самары{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -87,8 +88,29 @@
             border: none;
             display: block;
         }
+       /* Возвращаем свои правила для выпадающего меню */
+#options {
+    box-sizing: border-box; /* или content-box, если хотите как раньше */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#options a {
+    font-family: 'tt_norms', sans-serif !important;
+    margin: 0 !important; /* Убираем возможные отступы от nav a */
+    text-decoration: none !important; /* Убираем подчеркивание от глобального стиля */
+}
+
+/* Если прямоугольник все еще резко исчезает, проверьте,
+   чтобы overflow: hidden был на месте */
+#options {
+    overflow: hidden !important;
+}
+
     </style>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 <body>
@@ -97,10 +119,10 @@
         <div id="profile">
             <h2 id="profilelabel" style="margin:0; font-size: 1.2rem; color: #007bff;">Войти</h2>
             <div id="options">
-                               <br>
+
 				<a href="/edit" id="f">Ред. <br>профиль</a>
 				<br>
-				<a href="/liked" id="s">Избранные<br> точки</a>
+				<a href="/favorites" id="s">Избранные<br> точки</a>
 				<br>
 				<a href="/logout" id="t">Выйти</a>
 

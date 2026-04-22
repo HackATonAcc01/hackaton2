@@ -30,23 +30,11 @@
             <div style="background:#f5f0e8; border-radius:10px; padding:25px;
                         text-align:center; margin-bottom:25px;
                         border:2px dashed #c9a96e;">
-                {% if checkpoint.media == 'фото' %}
-                <div style="font-size:3rem; margin-bottom:8px;">🖼</div>
-                <p style="color:#888; font-size:0.88rem;">Фотография места</p>
-                {% elif checkpoint.media == 'аудио' %}
-                <div style="font-size:3rem; margin-bottom:8px;">🔊</div>
-                <p style="color:#888; font-size:0.88rem; margin-bottom:10px;">Аудиогид</p>
-                <div style="background:white; border-radius:30px; padding:10px 20px;
-                            display:inline-flex; align-items:center; gap:12px;
-                            box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-                    <span style="font-size:1.4rem;">▶</span>
-                    <div style="background:#e0e0e0; height:4px; width:130px; border-radius:2px;"></div>
-                    <span style="color:#888; font-size:0.8rem;">0:00</span>
-                </div>
-                {% elif checkpoint.media == 'видео' %}
-                <div style="font-size:3rem; margin-bottom:8px;">🎬</div>
-                <p style="color:#888; font-size:0.88rem;">Видеоэкскурсия</p>
-                {% endif %}
+                 <img src={{ checkpoint.media }}
+     alt="Музей"
+     style="max-width: 100%; height: auto; border-radius: 8px; object-fit: contain;">
+
+
             </div>
 
             <!-- Описание -->

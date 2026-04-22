@@ -1,18 +1,13 @@
 {% extends 'base.html' %}
-{% block title %}{{ route.title }} — Народы Самары{% endblock %}
+{% block title %}{{ route.title }} {% endblock %}
 
 {% block content %}
-
+<h3 style="font-size:1.5rem;">{{ route.title }}</h3>
+<br>
 <div style="background:#8b1a1a; color:white; border-radius:12px;
             padding:30px; margin-bottom:25px;">
-    <h2 style="font-size:1.8rem; margin-bottom:10px;">{{ route.title }}</h2>
+
     <p style="opacity:0.9; line-height:1.7; max-width:750px;">{{ route.description }}</p>
-    <div style="margin-top:15px; display:flex; gap:25px; font-size:0.9rem;
-                opacity:0.85; flex-wrap:wrap;">
-        <span>⏱ {{ route.duration }}</span>
-        <span>📊 {{ route.complexity }}</span>
-        <span>📍 {{ route.checkpoints|length }} точек</span>
-    </div>
 </div>
 
 <div style="display:grid; grid-template-columns:1fr 420px; gap:25px;">

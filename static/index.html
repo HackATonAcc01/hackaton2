@@ -1,33 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
-		<script src="/static/scripts/main.js"></script>
-		<script src="/static/scripts/buttons.js"></script>
-    </head>
-    <body>
-		<div class="navigation">
-            <h1> Многонациональная Самара </h1>
-        <div id = "profile">
-			<h2 id = "profilelabel"> войти
-			</h2>
-			<div id="options">
-				<br>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Многонациональная Самара</title>
+    <!-- Исправленная ссылка на Bootstrap -->
+    <link rel="stylesheet" href="https://bootstrapcdn.com">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+
+
+
+
+</head>
+<body>
+
+    <nav>
+        <h1>Многонациональная Самара</h1>
+        <div id="profile">
+            <h2 id="profilelabel" style="margin:0; font-size: 1.2rem; color: #007bff;">Войти</h2>
+            <div id="options">
+                               <br>
 				<a href="/edit" id="f">Ред. <br>профиль</a>
 				<br>
 				<a href="/liked" id="s">Избранные<br> игры</a>
 				<br>
 				<a href="/logout" id="t">Выйти</a>
-			</div>
+
+            </div>
         </div>
-			
+    </nav>
+
+    <div class="container">
+        <div class="route-container">
+            <div class="route-card" id="card1">
+                <h3>Маршрут №1</h3>
+                <p>Краткое описание экскурсии или игрового маршрута по городу.</p>
+                <button class="btn btn-primary mt-auto w-100">Подробнее</button>
+            </div>
+
+            <div class="route-card" id="card2">
+                <h3>Маршрут №2</h3>
+                <p>Интересные факты о национальностях Самарской области.</p>
+                <button class="btn btn-primary mt-auto w-100">Подробнее</button>
+            </div>
+
+            <div class="route-card" id="card3">
+                <h3>Маршрут №3</h3>
+                <p>История архитектуры и культурного наследия региона.</p>
+                <button class="btn btn-primary mt-auto w-100">Подробнее</button>
+            </div>
+
+            <div class="route-card" id="card4">
+                <h3>Маршрут №4</h3>
+                <p>Описание следующего увлекательного маршрута.</p>
+                <button class="btn btn-primary mt-auto w-100">Подробнее</button>
+            </div>
+
+            <div class="route-card" id="card5">
+                <h3>Маршрут №5</h3>
+                <p>Еще одна интересная локация нашего города.</p>
+                <button class="btn btn-primary mt-auto w-100">Подробнее</button>
+            </div>
+
+            <div class="route-card" id="card6">
+                <h3>Маршрут №6</h3>
+                <p>Заключительный маршрут в этой серии.</p>
+                <button class="btn btn-primary mt-auto w-100">Подробнее</button>
+            </div>
+        </div>
     </div>
-    <div id="routes"> </div>
-	</body>
+    <script src="/static/scripts/main.js"></script>
+    <script src="/static/scripts/buttons.js"></script>
+</body>
 </html>

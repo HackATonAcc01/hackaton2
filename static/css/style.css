@@ -213,4 +213,95 @@ a:hover {
 
 
 
+body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding-top: 100px; /* Отступ сверху, чтобы контент не заезжал под фиксированную шапку */
+        }
+
+        /* Навигация теперь закреплена сверху */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        #profile {
+            position: relative;
+            cursor: pointer;
+        }
+
+        #options {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 150px;
+        }
+
+        #profile:hover #options {
+            display: block;
+        }
+
+        /* Сетка карточек */
+        .route-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px; /* Расстояние между карточками */
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .route-card {
+            background-color: white;
+            flex: 0 1 25%;
+            min-width: 280px; /* Чтобы на маленьких экранах они не сужались в щепку */
+            height: 400px;
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .route-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Адаптивность: на планшетах по 2 в ряд */
+        @media (max-width: 992px) {
+            .route-card {
+                flex: 0 1 calc(50% - 30px);
+            }
+        }
+
+        /* На телефонах по 1 в ряд */
+        @media (max-width: 600px) {
+            .route-card {
+                flex: 0 1 100%;
+            }
+        }
 

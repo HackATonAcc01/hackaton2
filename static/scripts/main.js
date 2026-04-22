@@ -26,6 +26,36 @@ window.onload = function() {
 
 };
 
+const card1 = document.querySelector('#card1');
+card1.addEventListener('click', function(event) {
+    window.location.href = "/route/1"
+});
+
+const card2 = document.querySelector('#card2');
+card2.addEventListener('click', function(event) {
+    window.location.href = "/route/2"
+});
+
+const card3 = document.querySelector('#card3');
+card3.addEventListener('click', function(event) {
+    window.location.href = "/route/3"
+});
+
+const card4 = document.querySelector('#card4');
+card4.addEventListener('click', function(event) {
+    window.location.href = "/route/4"
+});
+
+const card5 = document.querySelector('#card5');
+card5.addEventListener('click', function(event) {
+    window.location.href = "/route/5"
+});
+
+const card6 = document.querySelector('#card6');
+card6.addEventListener('click', function(event) {
+    window.location.href = "/route/6"
+});
+
 function getCookie(name) {
   let cookie = document.cookie.split('; ').find(row => row.startsWith(name + '='));
   return cookie ? cookie.split('=')[1] : null;

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Народы Самары{% endblock %}</title>
+
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -85,22 +86,30 @@
             display: block;
         }
     </style>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+
 </head>
 <body>
-<header>
-    <h1>🏛 Народы Самарского Поволжья</h1>
-    <nav>
-        <a href="{{ url_for('index') }}">🏠 Главная</a>
-        <a href="{{ url_for('routes_list') }}">🗺 Маршруты</a>
+<nav>
+        <h1>Многонациональная Самара</h1>
+        <div id="profile">
+            <h2 id="profilelabel" style="margin:0; font-size: 1.2rem; color: #007bff;">Войти</h2>
+            <div id="options">
+                               <br>
+				<a href="/edit" id="f">Ред. <br>профиль</a>
+				<br>
+				<a href="/liked" id="s">Избранные<br> игры</a>
+				<br>
+				<a href="/logout" id="t">Выйти</a>
+
+            </div>
+        </div>
     </nav>
-</header>
 
 <main>
     {% block content %}{% endblock %}
 </main>
 
-<footer>
-    <p>© 2024 Виртуальные маршруты народов Самарского Поволжья | ИТ-Хакатон «20 народов России»</p>
-</footer>
+
 </body>
 </html>

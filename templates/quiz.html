@@ -5,9 +5,9 @@
 
 <div style="font-size:0.85rem; color:#888; margin-bottom:20px;">
     <a href="{{ url_for('route_detail', route_id=route.id) }}"
-       style="color:#8b1a1a;">← {{ route.title }}</a> →
+       style="color:#634b66;">{{ route.title }}</a> →
     <a href="{{ url_for('checkpoint', route_id=route.id, checkpoint_id=checkpoint.id) }}"
-       style="color:#8b1a1a;">{{ checkpoint.name }}</a> →
+       style="color:#634b66;">{{ checkpoint.name }}</a> →
     Викторина
 </div>
 
@@ -15,8 +15,8 @@
 
     <!-- Викторина -->
     <div class="card">
-        <div style="background:#8b1a1a; color:white; padding:20px 25px;">
-            <div style="font-size:0.82rem; opacity:0.75; margin-bottom:5px;">📝 Викторина</div>
+        <div style="background:#634b66; color:white; padding:20px 25px;">
+            <div style="font-size:0.82rem; opacity:0.75; margin-bottom:5px;">Викторина</div>
             <h2 style="font-size:1.25rem; line-height:1.4;">{{ checkpoint.name }}</h2>
             {% if not quiz_completed %}
             <div style="margin-top:10px; font-size:0.9rem;">
@@ -28,10 +28,10 @@
         <div style="padding:25px 30px;">
             {% if not quiz_completed and current_question %}
 
-            <div style="background:#f5f0e8; border-radius:10px;
+            <div style="background:#E7EFFF; border-radius:10px;
                         padding:20px; margin-bottom:25px;">
-                <h3 style="color:#8b1a1a; font-size:1rem; line-height:1.6;">
-                    ❓ {{ current_question.question }}
+                <h3 style="color:#555; font-size:1rem; line-height:1.6;">
+                    {{ current_question.question }}
                 </h3>
             </div>
 
@@ -60,10 +60,10 @@
                                   background:#f9f9f9; border:2px solid #e0e0e0;
                                   border-radius:8px; padding:14px 16px; cursor:pointer;
                                   transition:border-color 0.2s, background 0.2s;"
-                           onmouseover="this.style.borderColor='#8b1a1a';this.style.background='#fff5f5'"
+                           onmouseover="this.style.borderColor='#634b66';this.style.background='#E7EFFF'"
                            onmouseout="this.style.borderColor='#e0e0e0';this.style.background='#f9f9f9'">
                         <input type="radio" name="answer" value="{{ i }}"
-                               style="width:18px; height:18px; accent-color:#8b1a1a;" required>
+                               style="width:18px; height:18px; accent-color:#634b66;" required>
                         <span style="font-size:0.93rem;">
                             {{ current_question.answers[i] }}
                         </span>
@@ -127,9 +127,6 @@
 
     <div style="position:sticky; top:80px;">
         <div class="card">
-            <div style="padding:15px 20px; border-bottom:1px solid #f0f0f0;">
-                <strong style="color:#8b1a1a;">📍 Вы отвечаете за это место</strong>
-            </div>
             <div class="map-container" style="height:260px;">
                 <iframe
                     src="{{ checkpoint.map_iframe }}"
@@ -144,7 +141,7 @@
                     {{ checkpoint.name }}
                 </p>
                 <p style="font-size:0.82rem; color:#888; margin-top:4px;">
-                    📌 {{ checkpoint.address }}
+                    {{ checkpoint.address }}
                 </p>
             </div>
         </div>

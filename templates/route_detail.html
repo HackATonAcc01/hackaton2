@@ -4,7 +4,7 @@
 {% block content %}
 <h3 style="font-size:1.5rem;">{{ route.title }}</h3>
 <br>
-<div style="background:#8b1a1a; color:white; border-radius:12px;
+<div style="background:#634b66; color:white; border-radius:12px;
             padding:30px; margin-bottom:25px;">
 
     <p style="opacity:0.9; line-height:1.7; max-width:750px;">{{ route.description }}</p>
@@ -18,7 +18,7 @@
         <div class="card" style="padding:20px; margin-bottom:20px;">
             <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                 <strong>Прогресс маршрута</strong>
-                <span style="color:#8b1a1a; font-weight:bold;">
+                <span style="color:#634b66; font-weight:bold;">
                     {{ completed }} / {{ total }}
                 </span>
             </div>
@@ -37,15 +37,15 @@
         </div>
 
         <!-- Точки -->
-        <h3 style="margin-bottom:15px; color:#8b1a1a;">📍 Точки маршрута</h3>
+        <h3 style="margin-bottom:15px; color:#634b66;"> Точки маршрута</h3>
         {% for cp in route.checkpoints %}
         <div class="card" style="margin-bottom:12px; padding:18px;
-                    border-left:5px solid {{ '#2e7d32' if cp.id in progress else '#8b1a1a' }};
+                    border-left:5px solid {{ '#2e7d32' if cp.id in progress else '#634b66' }};
                     display:flex; justify-content:space-between;
                     align-items:center; gap:15px;">
             <div style="flex:1;">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
-                    <span style="background:{{ '#2e7d32' if cp.id in progress else '#8b1a1a' }};
+                    <span style="background:{{ '#2e7d32' if cp.id in progress else '#634b66' }};
                                  color:white; width:26px; height:26px; border-radius:50%;
                                  display:flex; align-items:center; justify-content:center;
                                  font-size:0.8rem; font-weight:bold; flex-shrink:0;">
@@ -79,7 +79,7 @@
     <div>
         <div class="card" style="position:sticky; top:80px;">
             <div style="padding:15px 20px; border-bottom:1px solid #f0f0f0;">
-                <strong style="color:#8b1a1a;">🗺 Карта маршрута</strong>
+                <strong style="color:#634b66;">🗺 Карта маршрута</strong>
             </div>
             <!-- iframe без ключа -->
             <div class="map-container" style="height:480px;">

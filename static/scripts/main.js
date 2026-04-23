@@ -10,6 +10,11 @@ window.onload = function() {
         let pl = document.getElementById('profilelabel');
         pl.innerText= "";
         pl.appendChild(elem1);
+        document.getElementById('f').style.visibility = "hidden";
+        document.getElementById('s').style.visibility = "hidden";
+        document.getElementById('t').style.visibility = "hidden";
+
+
     }else{
         try{
             document.getElementById('guest').id = "options";
@@ -21,6 +26,9 @@ window.onload = function() {
         pl.innerText = getCookie("login_");
         let options = document.getElementById('options');
         options.style.right = (getCookie("login_").length * 20 / 3).toString() + "px";
+        document.getElementById('f').style.visibility = "visible";
+        document.getElementById('s').style.visibility = "visible";
+        document.getElementById('t').style.visibility = "visible";
     }
 
 

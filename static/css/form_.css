@@ -5,8 +5,8 @@ nav h2 {
     top: 50%;
     transform: translate(-50%, -50%); /* Идеальное центрирование относительно точки 55% */
     margin: 0;
-    font-family: 'tt_norms';
-    color: #18020c;
+    font-family: 'tt_norms', sans-serif;
+    color: #f4f1de;
     white-space: nowrap;
 }
 
@@ -16,18 +16,19 @@ nav h2 {
 }
 
 form {
-    background: #634b66; /* Темный фон формы под стиль навигации */
+    background: #3d405b; /* Темный фон формы под стиль навигации */
     padding: 30px;
     border-radius: 12px;
+    border: 1px solid #f4f1de;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* 3. Элементы ввода и текст */
 label {
-    font-family: 'tt_norms';
+    font-family: 'tt_norms', sans-serif;
     font-size: 18px;
     letter-spacing: 0.5px;
-    color: #ffffff;
+    color: #f4f1de;
     display: block;
     text-align: center;
     margin-bottom: 8px;
@@ -35,7 +36,8 @@ label {
 
 .form-control {
     width: 100%;
-    color: #3d405b;
+    background-color: #f4f1de !important;
+    color: #3d405b !important;
     border: none;
     height: 45px;
     border-radius: 6px;
@@ -43,15 +45,16 @@ label {
 }
 
 .form-control:focus {
-    box-shadow: 0px 0px 8px 2px #e5ffde;
-    background-color: #ffffff;
+    box-shadow: 0px 0px 8px 2px #e07a5f;
+    background-color: #f4f1de;
     outline: none;
 }
 
 /* 4. Кнопка и ссылки */
 #submit {
-    background-color: #E7EFFF;
-    color: black;
+    background-color: #e07a5f;
+    border: 1px solid #f4f1de;
+    color: #f4f1de;
     padding: 12px;
     font-family: 'tt_norms', sans-serif;
     font-weight: bold;
@@ -60,7 +63,7 @@ label {
 }
 
 #submit:hover {
-    background-color: #E7EFFF;
+    background-color: #d16b50;
     transform: translateY(-2px);
 }
 
@@ -73,21 +76,16 @@ label {
 
 .text-center a {
     font-family: 'tt_norms', sans-serif;
-    color: black;
+    color: #f4f1de;
     text-decoration: none;
     transition: 0.3s;
 }
 
 .text-center a:hover {
-    color: #634b66;
+    color: #e07a5f;
 }
 
 /* Обнуление старых отступов */
 #login, #link_r, #submit, .form-control, label, h2 {
     margin-left: 0 !important;
 }
-
-body {
-    background-color: #e5ffde;
-}
-

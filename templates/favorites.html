@@ -16,11 +16,11 @@
 {% if favorites %}
 
 <!-- Счётчик -->
-<div style="background:#E7EFFF; border:1px solid #634b66;
+<div style="background:rgba(224,122,95,0.1); border:1px solid rgba(224,122,95,0.3);
             border-radius:10px; padding:14px 20px; margin-bottom:25px;
             display:inline-block;">
-    <span style="color:#634b66; font-weight:bold; font-size:1rem;">
-        Сохранено мест: {{ favorites|length }}
+    <span style="color:#e07a5f; font-weight:bold; font-size:1rem;">
+        📍 Сохранено мест: {{ favorites|length }}
     </span>
 </div>
 
@@ -44,7 +44,7 @@
                         object-fit:cover; opacity:0.85;">
             <!-- Бейдж маршрута -->
             <div style="position:absolute; top:10px; left:10px;
-                        background:#634b66; color:white;
+                        background:rgba(139,26,26,0.9); color:white;
                         padding:4px 10px; border-radius:20px; font-size:0.75rem;">
                 {{ item.route.title }}
             </div>
@@ -78,11 +78,11 @@
             </p>
 
             <!-- Факт -->
-            <div style="background:#E7EFFF; border-left:3px solid #634b66;
+            <div style="background:#fff8e1; border-left:3px solid #f9a825;
                         padding:10px 12px; border-radius:0 6px 6px 0;
                         margin-bottom:15px;">
                 <p style="font-size:0.8rem; color:#777; line-height:1.5;">
-                    {{ item.checkpoint.fact[:90] }}...
+                    💡 {{ item.checkpoint.fact[:90] }}...
                 </p>
             </div>
 
@@ -109,11 +109,11 @@
         чтобы сохранить место в избранное.
     </p>
     <a href="/"
-       style="display:inline-block; background:#634b66; color:white;
+       style="display:inline-block; background:#8b1a1a; color:white;
               padding:12px 28px; border-radius:8px; text-decoration:none;
               font-size:0.95rem; transition:background 0.2s;"
-       onmouseover="this.style.background='#E7EFFF'"
-       onmouseout="this.style.background='#634b66'">
+       onmouseover="this.style.background='#a52a2a'"
+       onmouseout="this.style.background='#8b1a1a'">
         ← На главную
     </a>
 </div>

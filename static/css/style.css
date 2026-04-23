@@ -84,7 +84,7 @@ h2 {
 }
 
 #f, #s, #t {
-    visibility: hidden; /* Оставляем как в вашей логике анимации */
+    visibility: visible; /* Оставляем как в вашей логике анимации */
     position: static;   /* Возвращаем в нормальный поток */
     font-family: 'tt_norms', sans-serif;
     font-size: 14px;
@@ -92,12 +92,6 @@ h2 {
     width: 100%;        /* Чтобы кликалась вся ширина */
 }
 
-/* При наведении (ваша логика) */
-#profile:hover #f,
-#profile:hover #s,
-#profile:hover #t {
-    visibility: visible;
-}
 
 
 #options {
@@ -237,3 +231,70 @@ body {
             }
         }
 
+/* style.css */
+
+/* Заголовки */
+h1 {
+  color: #18020c; /* Основной темный для читаемости */
+}
+h2 {
+  color: #634b66; /* Светлый, так как h2 используется в темном навбаре */
+}
+#profile h2 {
+  color: #634b66;
+}
+
+/* Выпадающее меню профиля */
+#options {
+    background: #ffffff;     /* Лавандовый фон меню */
+    border: 2px solid #634b66; /* Пурпурная обводка */
+}
+
+/* Ссылки внутри выпадающего меню (f, s, t) */
+#f, #s, #t {
+    color: #18020c; /* Темный текст для контраста на лавандовом */
+}
+
+/* Навигация (шапка) */
+.navigation {
+  background: #634b66;       /* Пурпурный основной блок */
+  border-bottom: 2px solid #18020c; /* Темная разделяющая полоса */
+}
+
+/* Ссылки */
+a {
+  color: #18020c;
+}
+a:hover {
+  color: #634b66;
+}
+
+/* Карточки маршрутов */
+nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #bbcbcb;
+}
+
+nav h1 {
+    color: #18020c;
+}
+
+.route-container {
+    background-color: #e5ffde; /* Фон под сеткой */
+}
+
+.route-card {
+    background-color: #ffffff;
+    border: 2px solid #bbcbcb; /* Серо-голубая рамка */
+    color: #18020c;           /* Текст внутри карточки */
+}
+
+.route-card:hover {
+    border-color: #634b66;    /* Пурпурный фокус при наведении */
+    box-shadow: 0 12px 20px rgba(149, 144, 168, 0.3); /* Лавандовая тень */
+}
+
+
+#sources {
+    font-family: tt_norms;
+}

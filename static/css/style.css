@@ -67,48 +67,46 @@ h2 {
   }
 }
 #profile h2:hover ~ #options {
-    height: 220px;         /* Нужная вам высота */
-    opacity: 1;            /* Появляется */
-    visibility: visible;   /* Становится активным */
-    border-width: 2px;     /* Появляется рамка */
+    height: 220px;
+    opacity: 1;
+    visibility: visible;
+    border-width: 2px;
 }
 
 
 
 
 #profile:hover #options {
-    height: 220px;        /* Высота, до которой раскрываемся */
+    height: 220px;
     opacity: 1;
     visibility: visible;
-    border-width: 2px;    /* Рамка тоже плавно растет */
+    border-width: 2px;
 }
 
 #f, #s, #t {
-    visibility: visible; /* Оставляем как в вашей логике анимации */
-    position: static;   /* Возвращаем в нормальный поток */
+    visibility: visible;
+    position: static;
     font-family: 'tt_norms', sans-serif;
     font-size: 14px;
     text-align: center;
-    width: 100%;        /* Чтобы кликалась вся ширина */
+    width: 100%;
 }
 
 
 
 #options {
-    /* Позиционирование */
-    position: fixed;
+     position: fixed;
     top: 10%;
     right: 3%;
     width: 150px;
 
-    /* Состояние "Скрыто" */
-    height: 0;            /* Обязательно 0 */
+
+    height: 0;
     opacity: 0;
     visibility: hidden;
-    overflow: hidden;     /* КРИТИЧНО: обрезает контент при уменьшении высоты */
+    overflow: hidden;
     border: 0 solid #f4f1de;
 
-    /* Стили контента */
     background: #3d405b;
     border-radius: 12px;
     display: flex;
@@ -117,7 +115,7 @@ h2 {
     justify-content: center;
     gap: 15px;
 
-    /* Анимация: анимируем ВСЕ свойства сразу */
+
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -160,10 +158,10 @@ a:hover {
 body {
             background-color: #f4f4f4;
             margin: 0;
-            padding-top: 100px; /* Отступ сверху, чтобы контент не заезжал под фиксированную шапку */
+            padding-top: 100px;
         }
 
-        /* Навигация теперь закреплена сверху */
+
         nav {
             position: fixed;
             top: 0;
@@ -187,11 +185,11 @@ body {
 
 
 
-        /* Сетка карточек */
+
         .route-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px; /* Расстояние между карточками */
+            gap: 30px;
             justify-content: center;
             padding: 20px 0;
         }
@@ -199,7 +197,7 @@ body {
         .route-card {
             background-color: white;
             flex: 0 1 25%;
-            min-width: 280px; /* Чтобы на маленьких экранах они не сужались в щепку */
+            min-width: 280px;
             height: 300px;
             border: 1px solid #dee2e6;
             border-radius: 12px;
@@ -217,51 +215,42 @@ body {
             box-shadow: 0 12px 20px rgba(0,0,0,0.1);
         }
 
-        /* Адаптивность: на планшетах по 2 в ряд */
         @media (max-width: 992px) {
             .route-card {
                 flex: 0 1 calc(50% - 30px);
             }
         }
 
-        /* На телефонах по 1 в ряд */
         @media (max-width: 600px) {
             .route-card {
                 flex: 0 1 100%;
             }
         }
 
-/* style.css */
-
-/* Заголовки */
 h1 {
-  color: #18020c; /* Основной темный для читаемости */
+  color: #18020c;
 }
 h2 {
-  color: #634b66; /* Светлый, так как h2 используется в темном навбаре */
+  color: #634b66;
 }
 #profile h2 {
   color: #634b66;
 }
 
-/* Выпадающее меню профиля */
 #options {
-    background: #ffffff;     /* Лавандовый фон меню */
-    border: 2px solid #634b66; /* Пурпурная обводка */
+    background: #ffffff;
+    border: 2px solid #634b66;
 }
 
-/* Ссылки внутри выпадающего меню (f, s, t) */
 #f, #s, #t {
-    color: #18020c; /* Темный текст для контраста на лавандовом */
+    color: #18020c;
 }
 
-/* Навигация (шапка) */
 .navigation {
-  background: #634b66;       /* Пурпурный основной блок */
-  border-bottom: 2px solid #18020c; /* Темная разделяющая полоса */
+  background: #634b66;
+  border-bottom: 2px solid #18020c;
 }
 
-/* Ссылки */
 a {
   color: #18020c;
 }
@@ -269,7 +258,6 @@ a:hover {
   color: #634b66;
 }
 
-/* Карточки маршрутов */
 nav {
     background-color: #ffffff;
     border-bottom: 1px solid #bbcbcb;
@@ -280,18 +268,18 @@ nav h1 {
 }
 
 .route-container {
-    background-color: #e5ffde; /* Фон под сеткой */
+    background-color: #e5ffde;
 }
 
 .route-card {
     background-color: #ffffff;
-    border: 2px solid #bbcbcb; /* Серо-голубая рамка */
-    color: #18020c;           /* Текст внутри карточки */
+    border: 2px solid #bbcbcb;
+    color: #18020c;
 }
 
 .route-card:hover {
-    border-color: #634b66;    /* Пурпурный фокус при наведении */
-    box-shadow: 0 12px 20px rgba(149, 144, 168, 0.3); /* Лавандовая тень */
+    border-color: #634b66;
+    box-shadow: 0 12px 20px rgba(149, 144, 168, 0.3);
 }
 
 

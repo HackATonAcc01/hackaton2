@@ -1582,10 +1582,8 @@ def toggle_favorite(checkpoint_id):
         add_to_favorite(points_, checkpoint_id, login_)
         added = True
 
-    # Если AJAX-запрос — вернуть JSON
     if flask.request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         return jsonify({'added': added})
-    # Иначе вернуть на страницу точки
     route_id = flask.request.form.get('route_id')
     return redirect(flask.url_for('checkpoint',
                             route_id=route_id,
@@ -1604,7 +1602,6 @@ def quiz(route_id, checkpoint_id):
 
     session_key = f'quiz_progress_{route_id}_{checkpoint_id}'
 
-    # Инициализация прогресса викторины
     if session_key not in flask.session:
         flask.session[session_key] = {
             'current_question': 0,
@@ -1622,7 +1619,6 @@ def quiz(route_id, checkpoint_id):
 
     if flask.request.method == 'POST' and not quiz_completed:
         if 'answer' in flask.request.form:
-            # Пользователь ответил на вопрос
             user_answer = flask.request.form.get('answer', type=int)
             current_question = quiz_questions[current_q_index]
 
@@ -1636,14 +1632,11 @@ def quiz(route_id, checkpoint_id):
             flask.session[session_key] = quiz_progress
 
         else:
-            # Пользователь нажал "Следующий вопрос"
             quiz_progress['current_question'] += 1
 
-            # Проверка завершения викторины
             if quiz_progress['current_question'] >= len(quiz_questions):
                 quiz_progress['completed'] = True
 
-                # Если все ответы правильные, засчитываем точку
                 if quiz_progress['correct_answers'] == len(quiz_questions):
                     progress_key = f'progress_{route_id}'
                     progress = flask.session.get(progress_key, [])
@@ -1652,14 +1645,12 @@ def quiz(route_id, checkpoint_id):
                         flask.session[progress_key] = progress
 
             flask.session[session_key] = quiz_progress
-            # Перенаправляем на ту же страницу, чтобы обновить вопрос
             return redirect(flask.url_for('quiz', route_id=route_id, checkpoint_id=checkpoint_id))
 
     checkpoints = route['checkpoints']
     current_index = next(i for i, c in enumerate(checkpoints) if c['id'] == checkpoint_id)
     next_cp = checkpoints[current_index + 1] if current_index + 1 < len(checkpoints) else None
 
-    # Обновляем current_q_index после возможного изменения
     current_q_index = quiz_progress['current_question']
     current_question = quiz_questions[current_q_index] if current_q_index < len(quiz_questions) else None
 

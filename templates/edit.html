@@ -20,7 +20,6 @@
         <h2>редактирование профиля</h2>
     </nav>
 
-    <!-- Используем универсальный контейнер -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5 col-lg-4">
@@ -28,7 +27,6 @@
                 <form action="" method="post" novalidate>
                     {{ form.hidden_tag() }}
 
-                    <!-- Блок логина -->
                     <div class="form-group">
                         {{ form.username.label(id="login") }}
                         {{ form.username(class="form-control") }}
@@ -37,7 +35,6 @@
                         {% endfor %}
                     </div>
 
-                    <!-- Блок пароля -->
                     <div class="form-group">
                         {{ form.password.label }}
                         {{ form.password(class="form-control", type="password") }}
@@ -46,20 +43,17 @@
                         {% endfor %}
                     </div>
 
-                    <!-- Кнопка отправки -->
                     <div class="text-center mt-4">
                         {{ form.submit(type="submit", class="btn btn-primary btn-block", id="submit") }}
                     </div>
                 </form>
 
-                <!-- Ошибки сервера (Flash-сообщения) -->
                 {% if message %}
                     <div class="alert alert-danger mt-3 text-center" role="alert">
                         {{ message }}
                     </div>
                 {% endif %}
 
-                <!-- Ссылки под формой -->
                 <div class="text-center mt-4">
                     <a href="/register" class="d-block mb-2">Зарегистрироваться</a>
                     <a href="/" id="back">На главную</a>

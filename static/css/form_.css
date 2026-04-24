@@ -1,28 +1,27 @@
 
 nav h2 {
     position: absolute;
-    left: 55%; /* Универсальная точка: чуть правее центра */
+    left: 55%; 
     top: 50%;
-    transform: translate(-50%, -50%); /* Идеальное центрирование относительно точки 55% */
+    transform: translate(-50%, -50%); 
     margin: 0;
     font-family: 'tt_norms';
     color: #18020c;
     white-space: nowrap;
 }
 
-/* 2. Контейнер формы */
+
 .container {
-    margin-top: 150px; /* Отступ от фиксированной шапки */
+    margin-top: 150px; 
 }
 
 form {
-    background: #634b66; /* Темный фон формы под стиль навигации */
+    background: #634b66; 
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* 3. Элементы ввода и текст */
 label {
     font-family: 'tt_norms';
     font-size: 18px;
@@ -48,14 +47,13 @@ label {
     outline: none;
 }
 
-/* 4. Кнопка и ссылки */
 #submit {
     background-color: #E7EFFF;
     color: black;
     padding: 12px;
     font-family: 'tt_norms', sans-serif;
     font-weight: bold;
-    width: 100%; /* Кнопка на всю ширину */
+    width: 100%; 
     transition: 0.3s;
 }
 
@@ -82,7 +80,6 @@ label {
     color: #634b66;
 }
 
-/* Обнуление старых отступов */
 #login, #link_r, #submit, .form-control, label, h2 {
     margin-left: 0 !important;
 }

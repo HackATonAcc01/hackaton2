@@ -13,7 +13,6 @@
 
 <div style="display:grid; grid-template-columns:1fr 380px; gap:25px; align-items:start;">
 
-    <!-- Информация о точке -->
     <div class="card">
         <div style="background:#634b66; color:white; padding:25px 30px;">
             <div style="font-size:0.82rem; opacity:0.75; margin-bottom:6px;">
@@ -27,7 +26,6 @@
 
         <div style="padding:25px 30px;">
 
-            <!-- Медиа -->
             <div style="background:#E7EFFF; border-radius:10px; padding:25px;
                         text-align:center; margin-bottom:25px;
                         border:2px dashed #634b66;">
@@ -37,14 +35,12 @@
                             border-radius:8px; object-fit:contain;">
             </div>
 
-            <!-- Описание -->
             <h3 style="color:#634b66; margin-bottom:12px;">О месте</h3>
             <p style="line-height:1.8; color:#444;
                       margin-bottom:20px; font-size:0.93rem;">
                 {{ checkpoint.description }}
             </p>
 
-            <!-- Исторический факт -->
             <div style="background:#E7EFFF; border-left:4px solid #634b66;
                         padding:15px 20px; border-radius:0 8px 8px 0;
                         margin-bottom:25px;">
@@ -57,7 +53,6 @@
                 </p>
             </div>
 
-            <!-- Пройдена -->
             {% if checkpoint.id in progress %}
             <div style="background:#e8f5e9; border-radius:8px; padding:13px;
                         text-align:center; margin-bottom:18px;">
@@ -67,7 +62,6 @@
             </div>
             {% endif %}
 
-            <!-- ★ Кнопка избранного ---------------------------------------- -->
             <form id="fav-form"
                   action="{{ url_for('toggle_favorite',
                                     checkpoint_id=id) }}"
@@ -98,9 +92,7 @@
 
                 </button>
             </form>
-            <!-- ------------------------------------------------------------ -->
 
-            <!-- Кнопки навигации -->
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
                 <a href="{{ url_for('quiz',
                                    route_id=route.id,
@@ -121,7 +113,6 @@
         </div>
     </div>
 
-    <!-- Карта точки -->
     <div style="position:sticky; top:80px;">
         <div class="card">
             <div style="padding:15px 20px; border-bottom:1px solid #f0f0f0;">
@@ -156,7 +147,6 @@
 
 </div>
 
-<!-- AJAX-переключение без перезагрузки страницы -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('fav-form');

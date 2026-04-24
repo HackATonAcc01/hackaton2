@@ -2,30 +2,30 @@
 
 /* base_page.css */
 body {
-    background: #e5ffde; /* Самый светлый - фон */
-    color: #18020c;      /* Самый темный - текст */
+    background: #e5ffde;
+    color: #18020c;
 }
 header {
-    background: #634b66; /* Пурпурный акцент */
-    color: #e5ffde;      /* Светлый текст на темном фоне */
+    background: #634b66; 
+    color: #e5ffde;      
     box-shadow: 0 2px 10px rgba(24, 2, 12, 0.2);
 }
 nav a {
     color: #18020c;
 }
 nav a:hover {
-    color: grey;      /* Серо-голубой при наведении */
+    color: grey;      
 }
 footer {
-    background: #18020c; /* Почти черный для подвала */
-    color: #bbcbcb;      /* Приглушенный светлый для футера */
+    background: #18020c; 
+    color: #bbcbcb;      
 }
 .btn {
     background: #634b66;
     color: #e5ffde;
 }
 .btn:hover {
-    background: #9590a8; /* Переход в лавандовый при наведении */
+    background: #9590a8; 
 }
 .btn-secondary {
     background: #bbcbcb;
@@ -36,7 +36,7 @@ footer {
     color: #e5ffde;
 }
 .card {
-    background: #ffffff; /* Оставляем чисто белый для контента внутри карт */
+    background: #ffffff; 
     border: 1px solid #bbcbcb;
 }
 .map-container {

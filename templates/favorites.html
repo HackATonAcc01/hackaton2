@@ -15,7 +15,6 @@
 
 {% if favorites %}
 
-<!-- Счётчик -->
 <div style="background:#E7EFFF; border:1px solid #634b66;
             border-radius:10px; padding:14px 20px; margin-bottom:25px;
             display:inline-block;">
@@ -24,7 +23,6 @@
     </span>
 </div>
 
-<!-- Сетка карточек -->
 <div style="display:grid;
             grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
             gap:22px;">
@@ -36,19 +34,16 @@
          onmouseover="this.style.transform='translateY(-4px)'"
          onmouseout="this.style.transform='translateY(0)'">
 
-        <!-- Фото -->
         <div style="height:180px; overflow:hidden; position:relative; background:#222;">
             <img src="{{ item.checkpoint.media }}"
                  alt="{{ item.checkpoint.name }}"
                  style="width:100%; height:100%;
                         object-fit:cover; opacity:0.85;">
-            <!-- Бейдж маршрута -->
             <div style="position:absolute; top:10px; left:10px;
                         background:#634b66; color:white;
                         padding:4px 10px; border-radius:20px; font-size:0.75rem;">
                 {{ item.route.title }}
             </div>
-            <!-- Кнопка удалить из избранного -->
             <button onclick="removeFavorite('{{ item.fav_id }}', this)"
                     style="position:absolute; top:8px; right:8px;
                            background:rgba(0,0,0,0.5); border:none;
@@ -63,7 +58,6 @@
             </button>
         </div>
 
-        <!-- Контент -->
         <div style="padding:18px;">
             <h3 style="font-size:0.98rem; color:#333;
                        margin-bottom:8px; line-height:1.4;">
@@ -77,7 +71,6 @@
                 {{ item.checkpoint.description[:100] }}...
             </p>
 
-            <!-- Факт -->
             <div style="background:#E7EFFF; border-left:3px solid #634b66;
                         padding:10px 12px; border-radius:0 6px 6px 0;
                         margin-bottom:15px;">
@@ -95,8 +88,6 @@
 </div>
 
 {% else %}
-
-<!-- Пусто -->
 <div style="text-align:center; padding:80px 20px;
             background:white; border-radius:12px;
             box-shadow:0 3px 12px rgba(0,0,0,0.1);">
@@ -120,7 +111,6 @@
 
 {% endif %}
 
-<!-- JS для удаления через AJAX -->
 <script>
 function removeFavorite(favId, btn) {
     const card = btn.closest('div[style*="border-radius:12px"]');
@@ -135,13 +125,11 @@ function removeFavorite(favId, btn) {
     .then(r => r.json())
     .then(data => {
         if (!data.added) {
-            // Плавно убираем карточку
             card.style.transition = 'opacity 0.4s, transform 0.4s';
             card.style.opacity = '0';
             card.style.transform = 'scale(0.9)';
             setTimeout(() => {
                 card.remove();
-                // Если больше нет карточек — перезагрузить
                 const remaining = document.querySelectorAll(
                     'div[style*="border-radius:12px"]'
                 );
@@ -152,7 +140,6 @@ function removeFavorite(favId, btn) {
         }
     })
     .catch(() => {
-        // Если ошибка — просто перезагружаем
         location.reload();
     });
 }
